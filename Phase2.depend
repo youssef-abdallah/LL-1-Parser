@@ -1,0 +1,41 @@
+# depslib dependency file v1.0
+1586720529 source:/home/youssef/Problem Solving/educational round 74 cF/Phase2/Phase2/src/Grammar.cpp
+	"Grammar.h"
+
+1586721413 /home/youssef/Problem Solving/educational round 74 cF/Phase2/Phase2/include/Grammar.h
+	"includes.h"
+	"NonTerminal.h"
+	"Token.h"
+
+1586633342 source:/home/youssef/Problem Solving/educational round 74 cF/Phase2/Phase2/src/NonTerminal.cpp
+	"NonTerminal.h"
+
+1586636941 /home/youssef/Problem Solving/educational round 74 cF/Phase2/Phase2/include/NonTerminal.h
+	"Token.h"
+
+1586641986 /home/youssef/Problem Solving/educational round 74 cF/Phase2/Phase2/include/Token.h
+	"includes.h"
+
+1586640384 /home/youssef/Problem Solving/educational round 74 cF/Phase2/Phase2/include/includes.h
+	<iostream>
+	<memory>
+	<vector>
+	<map>
+	<set>
+
+1586633297 source:/home/youssef/Problem Solving/educational round 74 cF/Phase2/Phase2/src/Terminal.cpp
+	"Terminal.h"
+
+1586636930 /home/youssef/Problem Solving/educational round 74 cF/Phase2/Phase2/include/Terminal.h
+	"Token.h"
+
+1586633224 source:/home/youssef/Problem Solving/educational round 74 cF/Phase2/Phase2/src/Token.cpp
+	"Token.h"
+
+1586720334 source:/home/youssef/Problem Solving/educational round 74 cF/Phase2/Phase2/main.cpp
+	"includes.h"
+	"Token.h"
+	"Terminal.h"
+	"NonTerminal.h"
+	"Grammar.h"
+
