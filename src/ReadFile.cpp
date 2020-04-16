@@ -23,13 +23,13 @@ ReadFile::ReadFile()
         cout << "Unable to open file";
     }
     AddProductions();
-    for (int i = 0; i < GrammarFile.size(); i++){
+    /*for (int i = 0; i < GrammarFile.size(); i++){
         vector<std::string> temp = GrammarFile[i];
         for(int j = 0; j < temp.size(); j++){
             cout << temp[j] << " ** ";
         }
         cout << '\n';
-    }
+    }*/
 }
 
 ReadFile::~ReadFile()
