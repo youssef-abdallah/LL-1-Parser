@@ -3,12 +3,13 @@
 #include "Terminal.h"
 #include "NonTerminal.h"
 #include "Grammar.h"
+#include "ReadFile.h"
 
 using namespace std;
 
 int main()
 {
-    shared_ptr<NonTerminal> p1 = make_shared<NonTerminal>("E");
+    /*shared_ptr<NonTerminal> p1 = make_shared<NonTerminal>("E");
     shared_ptr<NonTerminal> p2 = make_shared<NonTerminal>("Edash");
     shared_ptr<NonTerminal> p3 = make_shared<NonTerminal>("T");
     shared_ptr<NonTerminal> p4 = make_shared<NonTerminal>("Tdash");
@@ -43,6 +44,25 @@ int main()
     grammar.addProduction(p4, v3);
     grammar.addProduction(p5, v6);
     grammar.addProduction(p5, v7);
+
+    grammar.computeFirst();
+    map<shared_ptr<Token>, set<string>> mp = grammar.getFirst();
+    for (auto elem : mp) {
+        for (auto elem2 : elem.second) {
+            cout << elem.first->getType() << " " << elem2 << " ";
+        }
+        cout << endl;
+    }
+    grammar.computeFollow();
+    mp = grammar.getFollow();
+    for (auto elem : mp) {
+        for (auto elem2 : elem.second) {
+            cout << elem.first->getType() << " " << elem2 << " ";
+        }
+        cout << endl;
+    }*/
+    ReadFile file;
+    Grammar grammar = file.GetGrammar();
 
     grammar.computeFirst();
     map<shared_ptr<Token>, set<string>> mp = grammar.getFirst();

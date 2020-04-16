@@ -1,0 +1,84 @@
+#include <ReadFile.h>
+
+ReadFile::ReadFile()
+{
+    vector<std::string> Current_Production, Next_Production;
+    string line;
+    ifstream myfile ("./test/Grammer.txt");
+    if (myfile.is_open()){
+        while ( getline (myfile,line) ){
+            Next_Production = ExractStrings(line);
+            if (NewProduction(Next_Production[0])){
+                if (Current_Production.size() > 0){
+                    GrammarFile.insert(GrammarFile.end(), Current_Production);
+                }
+                Current_Production = Next_Production;
+            } else {
+                Current_Production.insert(Current_Production.end(), Next_Production.begin(), Next_Production.end());
+            }
+        }
+        GrammarFile.insert(GrammarFile.end(), Current_Production);
+        myfile.close();
+    } else {
+        cout << "Unable to open file";
+    }
+    AddProductions();
+    /*for (int i = 0; i < GrammarFile.size(); i++){
+        vector<std::string> temp = GrammarFile[i];
+        for(int j = 0; j < temp.size(); j++){
+            cout << temp[j] << " ** ";
+        }
+        cout << '\n';
+    }*/
+}
+
+ReadFile::~ReadFile()
+{
+    //dtor
+}
+
+vector <std::string> ReadFile::ExractStrings(std::string str){
+    std::regex Split_Space("\\s+");
+    std::vector<std::string> result{std::sregex_token_iterator(str.begin(), str.end(), Split_Space, -1), {}};
+    if (result[0] == ""){
+        result.erase (result.begin());
+    }
+    return result;
+}
+
+bool ReadFile::NewProduction(std::string first_element){
+    if (first_element == "#"){
+        return true;
+    }
+    return false;
+}
+
+void ReadFile::AddProductions(){
+    vector <shared_ptr<Token>> production;
+    for (int i = 0; i < GrammarFile.size(); i++){
+        vector<std::string> temp = GrammarFile[i];
+        shared_ptr<NonTerminal> p = make_shared<NonTerminal>(temp[1]);
+        for(int j = 3; j < temp.size(); j++){
+            if (temp[j] == "|"){
+                grammar.addProduction(p,production);
+                production.clear();
+            } else {
+                if ((temp[j].find("'")) != std::string::npos){
+                    // then this Token
+                    shared_ptr<Token> token = make_shared<Terminal>(temp[j].substr(1,temp[j].length() - 2));
+                    production.insert(production.end(), token);
+                } else {
+                    // this terminal
+                    shared_ptr<NonTerminal> nonTerminal = make_shared<NonTerminal>(temp[j]);
+                    production.insert(production.end(), nonTerminal);
+                }
+            }
+        }
+        grammar.addProduction(p,production);
+        production.clear();
+    }
+}
+
+Grammar ReadFile::GetGrammar(){
+    return grammar;
+}
