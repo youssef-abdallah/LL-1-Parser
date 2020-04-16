@@ -20,11 +20,13 @@ private:
     unordered_map<std::string, shared_ptr<Token>> Tokens;
     unordered_map<std::string, shared_ptr<NonTerminal>> Non_Terminals;
     vector<std::string> ExractStrings(std::string str);
+    shared_ptr<NonTerminal> First_State;
     bool NewProduction(std::string first_element);
     void AddProductions();
 public:
 	ReadFile();
 	~ReadFile();
 	Grammar GetGrammar();
+	shared_ptr<NonTerminal> GetFirstState();
 };
 #endif // READFILE_H_INCLUDED

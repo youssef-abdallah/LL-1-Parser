@@ -1,5 +1,5 @@
 # E = T Et
-# Et = '+' T Et
+# Et = '+' T Et | \L
 # T = F Tt
-# Tt = '*' F Tt
+# Tt = '*' F Tt | \L
 # F = '(' E ')' | 'id'

@@ -23,13 +23,13 @@ ReadFile::ReadFile()
         cout << "Unable to open file";
     }
     AddProductions();
-    /*for (int i = 0; i < GrammarFile.size(); i++){
+    for (int i = 0; i < GrammarFile.size(); i++){
         vector<std::string> temp = GrammarFile[i];
         for(int j = 0; j < temp.size(); j++){
             cout << temp[j] << " ** ";
         }
         cout << '\n';
-    }*/
+    }
 }
 
 ReadFile::~ReadFile()
@@ -67,9 +67,12 @@ void ReadFile::AddProductions(){
         } else {
             p = t->second;
         }
+        if (i == 0){
+            First_State = p;
+        }
 
         for(int j = 3; j < temp.size(); j++){
-            if (temp[j] == "|"){
+            if (temp[j] == "|" || ((temp[j].find("\\")) != std::string::npos)){
                 vector <shared_ptr<Token>> Temp = production;
                 production.clear();
                 productions.push_back(Temp);
@@ -109,4 +112,8 @@ void ReadFile::AddProductions(){
 
 Grammar ReadFile::GetGrammar(){
     return grammar;
+}
+
+shared_ptr<NonTerminal> ReadFile::GetFirstState(){
+    return First_State;
 }

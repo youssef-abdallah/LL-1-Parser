@@ -38,10 +38,10 @@ int main()
     Grammar grammar;
     grammar.addProduction(p1, v1);
     grammar.addProduction(p2, v2);
-    //grammar.addProduction(p2, v3);
+    grammar.addProduction(p2, v3);
     grammar.addProduction(p3, v4);
     grammar.addProduction(p4, v5);
-    //grammar.addProduction(p4, v3);
+    grammar.addProduction(p4, v3);
     grammar.addProduction(p5, v6);
     grammar.addProduction(p5, v7);
 
