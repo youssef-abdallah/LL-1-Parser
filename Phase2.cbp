@@ -36,12 +36,16 @@
 		</Compiler>
 		<Unit filename="include/Grammar.h" />
 		<Unit filename="include/NonTerminal.h" />
+		<Unit filename="include/ReadFile.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
 		<Unit filename="include/Terminal.h" />
 		<Unit filename="include/Token.h" />
 		<Unit filename="include/includes.h" />
 		<Unit filename="main.cpp" />
 		<Unit filename="src/Grammar.cpp" />
 		<Unit filename="src/NonTerminal.cpp" />
+		<Unit filename="src/ReadFile.cpp" />
 		<Unit filename="src/Terminal.cpp" />
 		<Unit filename="src/Token.cpp" />
 		<Extensions>

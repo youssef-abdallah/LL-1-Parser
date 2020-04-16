@@ -54,28 +54,56 @@ bool ReadFile::NewProduction(std::string first_element){
 }
 
 void ReadFile::AddProductions(){
+    int index = 0;
+    vector <vector <shared_ptr<Token>>> productions;
     vector <shared_ptr<Token>> production;
     for (int i = 0; i < GrammarFile.size(); i++){
         vector<std::string> temp = GrammarFile[i];
-        shared_ptr<NonTerminal> p = make_shared<NonTerminal>(temp[1]);
+        auto t = Non_Terminals.find(temp[1]);
+        shared_ptr<NonTerminal> p;
+        if (t == Non_Terminals.end()){
+            p = make_shared<NonTerminal>(temp[1]);
+            Non_Terminals.emplace(temp[1], p);
+        } else {
+            p = t->second;
+        }
+
         for(int j = 3; j < temp.size(); j++){
             if (temp[j] == "|"){
-                grammar.addProduction(p,production);
+                vector <shared_ptr<Token>> Temp = production;
                 production.clear();
+                productions.push_back(Temp);
+                grammar.addProduction(p,productions[index]);
+                index++;
             } else {
                 if ((temp[j].find("'")) != std::string::npos){
                     // then this Token
-                    shared_ptr<Token> token = make_shared<Terminal>(temp[j].substr(1,temp[j].length() - 2));
-                    production.insert(production.end(), token);
+                    auto t = Tokens.find((temp[j].substr(1,temp[j].length() - 2)));
+                    if (t == Tokens.end()){
+                        shared_ptr<Token> token = make_shared<Terminal>(temp[j].substr(1,temp[j].length() - 2));
+                        Tokens.emplace((temp[j].substr(1,temp[j].length() - 2)), token);
+                        production.push_back(token);
+                    } else {
+                        production.push_back(t->second);
+                    }
                 } else {
                     // this terminal
-                    shared_ptr<NonTerminal> nonTerminal = make_shared<NonTerminal>(temp[j]);
-                    production.insert(production.end(), nonTerminal);
+                    auto t = Non_Terminals.find(temp[j]);
+                    if (t == Non_Terminals.end()){
+                        shared_ptr<NonTerminal> nonTerminal = make_shared<NonTerminal>(temp[j]);
+                        Non_Terminals.emplace(temp[j], nonTerminal);
+                        production.push_back(nonTerminal);
+                    } else {
+                        production.push_back(t->second);
+                    }
                 }
             }
         }
-        grammar.addProduction(p,production);
+        vector <shared_ptr<Token>> Temp = production;
         production.clear();
+        productions.push_back(Temp);
+        grammar.addProduction(p,(productions[index]));
+        index++;
     }
 }
 

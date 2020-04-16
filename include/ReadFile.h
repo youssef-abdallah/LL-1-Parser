@@ -17,6 +17,8 @@ class ReadFile
 private:
     vector<vector<std::string>> GrammarFile;
     Grammar grammar;
+    unordered_map<std::string, shared_ptr<Token>> Tokens;
+    unordered_map<std::string, shared_ptr<NonTerminal>> Non_Terminals;
     vector<std::string> ExractStrings(std::string str);
     bool NewProduction(std::string first_element);
     void AddProductions();

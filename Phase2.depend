@@ -72,7 +72,7 @@
 1587032602 source:m:\projects\ll-1-parser\src\token.cpp
 	"Token.h"
 
-1587045334 source:m:\projects\ll-1-parser\main.cpp
+1587059583 source:m:\projects\ll-1-parser\main.cpp
 	"includes.h"
 	"Token.h"
 	"Terminal.h"
@@ -80,7 +80,7 @@
 	"Grammar.h"
 	"ReadFile.h"
 
-1587045013 m:\projects\ll-1-parser\include\readfile.h
+1587057889 m:\projects\ll-1-parser\include\readfile.h
 	"includes.h"
 	<iostream>
 	<fstream>
@@ -92,6 +92,6 @@
 	"Grammar.h"
 	"unordered_map"
 
-1587048107 source:m:\projects\ll-1-parser\src\readfile.cpp
+1587063303 source:m:\projects\ll-1-parser\src\readfile.cpp
 	<ReadFile.h>
 
