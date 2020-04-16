@@ -81,3 +81,7 @@ bool Grammar::updateFollow(shared_ptr<Token> token, set<string> followSoFar) {
     follow[token].insert(followSoFar.begin(), followSoFar.end());
     return originalSize != (int) follow[token].size();
 }
+
+multimap<shared_ptr<Token>, vector<shared_ptr<Token>>> Grammar::getProductions(){
+    return productions;
+}
