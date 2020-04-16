@@ -12,6 +12,9 @@ class Grammar
         void addProduction(shared_ptr<NonTerminal> &nonTerminal, vector<shared_ptr<Token>> &rightHandSide) {
             productions.insert({nonTerminal, rightHandSide});
         }
+        void setStartingSymbol(shared_ptr<NonTerminal> _startingSymbol) {
+            this->startingSymbol = _startingSymbol;
+        }
         map<shared_ptr<Token>, set<string>> getFirst() {
             return this->first;
         }
@@ -28,6 +31,7 @@ class Grammar
         map<shared_ptr<Token>, set<string>> follow;
         map<shared_ptr<Token>, set<string>> first;
         set<shared_ptr<Token>> epsilonTokens;
+        shared_ptr<NonTerminal> startingSymbol;
 
         bool unify(shared_ptr<Token>, shared_ptr<Token>);
         bool updateFollow(shared_ptr<Token> token, set<string> followSoFar);

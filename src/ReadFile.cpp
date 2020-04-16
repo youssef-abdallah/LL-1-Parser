@@ -4,7 +4,7 @@ ReadFile::ReadFile()
 {
     vector<std::string> Current_Production, Next_Production;
     string line;
-    ifstream myfile ("./test/Grammer.txt");
+    ifstream myfile ("./test/Grammar.txt");
     if (myfile.is_open()){
         while ( getline (myfile,line) ){
             Next_Production = ExractStrings(line);
@@ -57,7 +57,7 @@ void ReadFile::AddProductions(){
     int index = 0;
     vector <vector <shared_ptr<Token>>> productions;
     vector <shared_ptr<Token>> production;
-    for (int i = 0; i < GrammarFile.size(); i++){
+    for (unsigned int i = 0; i < GrammarFile.size(); i++){
         vector<std::string> temp = GrammarFile[i];
         auto t = Non_Terminals.find(temp[1]);
         shared_ptr<NonTerminal> p;
@@ -68,10 +68,10 @@ void ReadFile::AddProductions(){
             p = t->second;
         }
         if (i == 0){
-            First_State = p;
+            grammar.setStartingSymbol(p);
         }
 
-        for(int j = 3; j < temp.size(); j++){
+        for(unsigned int j = 3; j < temp.size(); j++){
             if (temp[j] == "|" || ((temp[j].find("\\")) != std::string::npos)){
                 vector <shared_ptr<Token>> Temp = production;
                 production.clear();
@@ -112,8 +112,4 @@ void ReadFile::AddProductions(){
 
 Grammar ReadFile::GetGrammar(){
     return grammar;
-}
-
-shared_ptr<NonTerminal> ReadFile::GetFirstState(){
-    return First_State;
 }

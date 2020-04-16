@@ -52,7 +52,7 @@ bool Grammar::unify(shared_ptr<Token> token, shared_ptr<Token> second) {
 }
 
 void Grammar::computeFollow() {
-    follow[productions.begin()->first].insert("$");
+    follow[startingSymbol].insert("$");
     while (1) {
         bool changes = 0;
         for (auto &production : productions) {
