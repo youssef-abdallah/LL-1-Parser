@@ -1,8 +1,8 @@
 # depslib dependency file v1.0
-1587071606 source:/home/youssef/Problem Solving/educational round 74 cF/Phase2/Phase2/src/Grammar.cpp
+1587148845 source:/home/youssef/Problem Solving/educational round 74 cF/Phase2/Phase2/src/Grammar.cpp
 	"Grammar.h"
 
-1587071592 /home/youssef/Problem Solving/educational round 74 cF/Phase2/Phase2/include/Grammar.h
+1587148845 /home/youssef/Problem Solving/educational round 74 cF/Phase2/Phase2/include/Grammar.h
 	"includes.h"
 	"NonTerminal.h"
 	"Token.h"
@@ -32,13 +32,14 @@
 1586633224 source:/home/youssef/Problem Solving/educational round 74 cF/Phase2/Phase2/src/Token.cpp
 	"Token.h"
 
-1587071226 source:/home/youssef/Problem Solving/educational round 74 cF/Phase2/Phase2/main.cpp
+1587166761 source:/home/youssef/Problem Solving/educational round 74 cF/Phase2/Phase2/main.cpp
 	"includes.h"
 	"Token.h"
 	"Terminal.h"
 	"NonTerminal.h"
 	"Grammar.h"
 	"ReadFile.h"
+	"ParsingTable.h"
 
 1587032602 source:m:\projects\ll-1-parser\src\grammar.cpp
 	"Grammar.h"
@@ -96,7 +97,7 @@
 1587067523 source:m:\projects\ll-1-parser\src\readfile.cpp
 	<ReadFile.h>
 
-1587071683 /home/youssef/Problem Solving/educational round 74 cF/Phase2/Phase2/include/ReadFile.h
+1587166696 /home/youssef/Problem Solving/educational round 74 cF/Phase2/Phase2/include/ReadFile.h
 	"includes.h"
 	<iostream>
 	<fstream>
@@ -245,4 +246,19 @@
 
 1587132885 source:/home/karim/Desktop/CSED21/compilers/NEW Rpo/src/Token.cpp
 	"Token.h"
+
+1587148845 source:/home/youssef/Problem Solving/educational round 74 cF/Phase2/Phase2/src/ParsingTable.cpp
+	"ParsingTable.h"
+	"Grammar.h"
+	"NonTerminal.h"
+	"Terminal.h"
+	"Token.h"
+
+1587148845 /home/youssef/Problem Solving/educational round 74 cF/Phase2/Phase2/include/ParsingTable.h
+	"includes.h"
+	"NonTerminal.h"
+	"Token.h"
+
+1587166859 source:/home/youssef/Problem Solving/educational round 74 cF/Phase2/Phase2/src/ReadFile.cpp
+	<ReadFile.h>
 

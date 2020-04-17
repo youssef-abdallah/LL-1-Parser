@@ -4,7 +4,7 @@ ReadFile::ReadFile()
 {
     vector<std::string> Current_Production, Next_Production;
     string line;
-    ifstream myfile ("./test/Grammar3.txt");
+    ifstream myfile ("./test/Grammar4.txt");
     if (myfile.is_open()){
         while ( getline (myfile,line) ){
             Next_Production = ExractStrings(line);
@@ -22,6 +22,7 @@ ReadFile::ReadFile()
     } else {
         cout << "Unable to open file";
     }
+    eliminateLeftRecursion();
     AddProductions();
     /*for (int i = 0; i < GrammarFile.size(); i++){
         vector<std::string> temp = GrammarFile[i];
@@ -122,4 +123,99 @@ vector<shared_ptr<Token>> ReadFile::GetTerminals(){
 
 vector<shared_ptr<NonTerminal>> ReadFile::GetNonTerminals(){
     return NonTerminals;
+}
+
+void ReadFile::eliminateLeftRecursion() {
+    vector<vector<string>> newGrammarFile;
+    vector<string> rule;
+    for (unsigned int i = 0; i < GrammarFile.size(); i++) {
+        for (unsigned int j = 0; j < i; j++) {
+            vector<string> newProduction;
+            newProduction.insert(newProduction.end(), GrammarFile[i].begin(), GrammarFile[i].begin() + 3);
+            for (unsigned int k = 3; k < GrammarFile[i].size(); k++) {
+                if (GrammarFile[i][k] != "|") {
+                    rule.push_back(GrammarFile[i][k]);
+                }
+                if (k + 1 == GrammarFile[i].size() || GrammarFile[i][k] == "|") {
+                    if (rule.size()) {
+                        if (GrammarFile[j][1] == rule[0]) {
+                            vector<string> gamma = {rule.begin() + 1, rule.end()};
+                            vector<vector<string>> alphas;
+                            vector<string> alpha;
+                            for (unsigned int x = 3; x < GrammarFile[j].size(); x++) {
+                                if (GrammarFile[j][x] != "|") {
+                                    alpha.push_back(GrammarFile[j][x]);
+                                }
+                                if (x == GrammarFile[j].size() - 1 || GrammarFile[j][x] == "|") {
+                                    if (alpha.size()) alphas.push_back(alpha);
+                                    alpha.clear();
+                                }
+                            }
+                            for (vector<string> &alpha : alphas) {
+                                alpha.insert(alpha.end(), gamma.begin(), gamma.end());
+                                newProduction.insert(newProduction.end(), alpha.begin(), alpha.end());
+                                newProduction.push_back({"|"});
+                            }
+                        } else {
+                            newProduction.insert(newProduction.end(), rule.begin(), rule.end());
+                            newProduction.push_back({"|"});
+                        }
+                        if (k + 1 == GrammarFile[i].size()) newProduction.pop_back();
+                        rule.clear();
+                    }
+                }
+            }
+            GrammarFile[i] = newProduction;
+        }
+        eliminateImmediateLeftRecursion(i + 1);
+    }
+}
+
+void ReadFile::eliminateImmediateLeftRecursion(unsigned int sz) {
+    for (unsigned int x = 0; x < sz; x++) {
+        vector<string> &production = GrammarFile[x];
+        string nonTerminal = production[1];
+        vector<string> rule;
+        vector<vector<string>> alphas, betas;
+        for (unsigned int i = 3; i < production.size(); i++) {
+            if (production[i] != "|") {
+                rule.push_back(production[i]);
+            }
+            if (i == production.size() - 1 || production[i] == "|") {
+                if (rule.size()) {
+                    if (rule[0] == nonTerminal) {
+                        vector<string> tmp = {rule.begin() + 1, rule.end()};
+                        alphas.push_back(tmp);
+                    } else {
+                        betas.push_back(rule);
+                    }
+                    rule.clear();
+                }
+            }
+        }
+        if (alphas.size()) {
+            vector<string> firstNewProduction, secondNewProduction;
+            string newNonTeminal = nonTerminal + "dash";
+            firstNewProduction.push_back("#");
+            firstNewProduction.push_back(nonTerminal);
+            firstNewProduction.push_back("=");
+            for (auto beta = betas.begin(); beta != betas.end(); beta++) {
+                (*beta).push_back(newNonTeminal);
+                firstNewProduction.insert(firstNewProduction.end(), beta->begin(), beta->end());
+                if (beta + 1 != betas.end()) firstNewProduction.push_back("|");
+            }
+            secondNewProduction.push_back("#");
+            secondNewProduction.push_back(newNonTeminal);
+            secondNewProduction.push_back("=");
+            for (auto alpha = alphas.begin(); alpha != alphas.end(); alpha++) {
+                (*alpha).push_back(newNonTeminal);
+                secondNewProduction.insert(secondNewProduction.end(), alpha->begin(), alpha->end());
+                secondNewProduction.push_back("|");
+            }
+            secondNewProduction.push_back("\\L");
+            GrammarFile[x] = firstNewProduction;
+            GrammarFile.insert(GrammarFile.begin() + x + 1, secondNewProduction);
+            sz++;
+        }
+    }
 }

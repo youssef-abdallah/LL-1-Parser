@@ -33,5 +33,7 @@ public:
     shared_ptr<NonTerminal> GetFirstState();
 	vector<shared_ptr<Token>> GetTerminals();
 	vector<shared_ptr<NonTerminal>> GetNonTerminals();
+	void eliminateLeftRecursion();
+	void eliminateImmediateLeftRecursion(unsigned int);
 };
 #endif // READFILE_H_INCLUDED
