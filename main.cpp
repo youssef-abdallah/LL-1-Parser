@@ -4,6 +4,7 @@
 #include "NonTerminal.h"
 #include "Grammar.h"
 #include "ReadFile.h"
+#include "ParsingTable.h"
 
 using namespace std;
 
@@ -66,6 +67,7 @@ int main()
 
     grammar.computeFirst();
     map<shared_ptr<Token>, set<string>> mp = grammar.getFirst();
+    cout << "FIRST:" << endl << endl;
     for (auto elem : mp) {
         for (auto elem2 : elem.second) {
             cout << elem.first->getType() << " " << elem2 << " ";
@@ -75,12 +77,37 @@ int main()
     cout << '\n' << '\n';
     grammar.computeFollow();
     mp = grammar.getFollow();
+    cout << endl << endl << "FOLLOW:" << endl << endl;
     for (auto elem : mp) {
         for (auto elem2 : elem.second) {
             cout << elem.first->getType() << " " << elem2 << " ";
         }
         cout << endl;
     }
+
+    ParsingTable parsingTable;
+    parsingTable.set_first(grammar.getFirst());
+    parsingTable.set_follow(grammar.getFollow());
+    parsingTable.set_non_terminals(file.GetNonTerminals());
+    parsingTable.set_terminals(file.GetTerminals());
+    parsingTable.set_productions(grammar.getProductions());
+    parsingTable.fill_parsing_table();
+    map<shared_ptr<Token>, map<shared_ptr<Token>, vector<shared_ptr<Token>>>> table = parsingTable.table;
+
+    cout << endl << endl << "Parsing TABLE:" << endl << endl;
+    for (auto elem : table) {
+        for (auto elem2 : elem.second) {
+            cout << elem.first->getType() << " " << elem2.first->getType() << " ";
+            vector<shared_ptr<Token>> tokens = elem2.second;
+            for (unsigned int i = 0; i < tokens.size(); i++){
+                cout << tokens[i]->getType();
+            }
+            cout << endl;
+        }
+        cout << endl;
+    }
+
+
     return 0;
 }
 

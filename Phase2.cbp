@@ -36,6 +36,7 @@
 		</Compiler>
 		<Unit filename="include/Grammar.h" />
 		<Unit filename="include/NonTerminal.h" />
+		<Unit filename="include/ParsingTable.h" />
 		<Unit filename="include/ReadFile.h">
 			<Option target="&lt;{~None~}&gt;" />
 		</Unit>
@@ -45,6 +46,7 @@
 		<Unit filename="main.cpp" />
 		<Unit filename="src/Grammar.cpp" />
 		<Unit filename="src/NonTerminal.cpp" />
+		<Unit filename="src/ParsingTable.cpp" />
 		<Unit filename="src/ReadFile.cpp" />
 		<Unit filename="src/Terminal.cpp" />
 		<Unit filename="src/Token.cpp" />

@@ -4,7 +4,7 @@ ReadFile::ReadFile()
 {
     vector<std::string> Current_Production, Next_Production;
     string line;
-    ifstream myfile ("./test/Grammar.txt");
+    ifstream myfile ("./test/Grammar3.txt");
     if (myfile.is_open()){
         while ( getline (myfile,line) ){
             Next_Production = ExractStrings(line);
@@ -86,6 +86,7 @@ void ReadFile::AddProductions(){
                         shared_ptr<Token> token = make_shared<Terminal>(temp[j].substr(1,temp[j].length() - 2));
                         Tokens.emplace((temp[j].substr(1,temp[j].length() - 2)), token);
                         production.push_back(token);
+                        Terminals.push_back(token);
                     } else {
                         production.push_back(t->second);
                     }
@@ -106,10 +107,19 @@ void ReadFile::AddProductions(){
         production.clear();
         productions.push_back(Temp);
         grammar.addProduction(p,(productions[index]));
+        NonTerminals.push_back(p);
         index++;
     }
 }
 
 Grammar ReadFile::GetGrammar(){
     return grammar;
+}
+
+vector<shared_ptr<Token>> ReadFile::GetTerminals(){
+    return Terminals;
+}
+
+vector<shared_ptr<NonTerminal>> ReadFile::GetNonTerminals(){
+    return NonTerminals;
 }

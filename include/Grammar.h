@@ -23,6 +23,7 @@ class Grammar
         }
         void computeFirst();
         void computeFollow();
+        multimap<shared_ptr<Token>, vector<shared_ptr<Token>>> getProductions();
 
     protected:
 

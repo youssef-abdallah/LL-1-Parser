@@ -19,6 +19,10 @@ private:
     Grammar grammar;
     unordered_map<std::string, shared_ptr<Token>> Tokens;
     unordered_map<std::string, shared_ptr<NonTerminal>> Non_Terminals;
+    shared_ptr<NonTerminal> First_State;
+    vector<shared_ptr<Token>> Terminals;
+    vector<shared_ptr<NonTerminal>> NonTerminals;
+    set<shared_ptr<Token>> set_terminals;
     vector<std::string> ExractStrings(std::string str);
     bool NewProduction(std::string first_element);
     void AddProductions();
@@ -26,5 +30,8 @@ public:
 	ReadFile();
 	~ReadFile();
 	Grammar GetGrammar();
+    shared_ptr<NonTerminal> GetFirstState();
+	vector<shared_ptr<Token>> GetTerminals();
+	vector<shared_ptr<NonTerminal>> GetNonTerminals();
 };
 #endif // READFILE_H_INCLUDED
