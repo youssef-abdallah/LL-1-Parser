@@ -85,7 +85,7 @@ int main()
         cout << endl;
     }
 
-    ParsingTable parsingTable;
+    /*ParsingTable parsingTable;
     parsingTable.set_first(grammar.getFirst());
     parsingTable.set_follow(grammar.getFollow());
     parsingTable.set_non_terminals(file.GetNonTerminals());
@@ -105,7 +105,7 @@ int main()
             cout << endl;
         }
         cout << endl;
-    }
+    }*/
 
 
     return 0;

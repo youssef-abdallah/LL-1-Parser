@@ -34,6 +34,9 @@
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
 		</Compiler>
+		<Unit filename="include/FactorNode.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
 		<Unit filename="include/Grammar.h" />
 		<Unit filename="include/NonTerminal.h" />
 		<Unit filename="include/ParsingTable.h" />
@@ -44,6 +47,7 @@
 		<Unit filename="include/Token.h" />
 		<Unit filename="include/includes.h" />
 		<Unit filename="main.cpp" />
+		<Unit filename="src/FactorNode.cpp" />
 		<Unit filename="src/Grammar.cpp" />
 		<Unit filename="src/NonTerminal.cpp" />
 		<Unit filename="src/ParsingTable.cpp" />

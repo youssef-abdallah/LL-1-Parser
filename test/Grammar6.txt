@@ -1,0 +1,3 @@
+# A = C 'f' 's' | C 'f' | C | B 'f' 's' 'k' | B 'f' 't'
+# B = A B 'l' | A 'l' | C
+# C = 'a' 'b' B | 'a' B | 'c' 'd' 'g' | 'c' 'd' 'e' B | 'c' 'd' 'f' B
