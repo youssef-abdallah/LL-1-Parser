@@ -15,6 +15,9 @@ class Grammar
         void setStartingSymbol(shared_ptr<NonTerminal> _startingSymbol) {
             this->startingSymbol = _startingSymbol;
         }
+        shared_ptr<NonTerminal> getStartingSymbol(){
+            return this->startingSymbol;
+        }
         map<shared_ptr<Token>, set<string>> getFirst() {
             return this->first;
         }

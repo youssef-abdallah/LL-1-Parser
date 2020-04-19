@@ -262,3 +262,87 @@
 1587166859 source:/home/youssef/Problem Solving/educational round 74 cF/Phase2/Phase2/src/ReadFile.cpp
 	<ReadFile.h>
 
+1587265589 source:e:\handasa\3\compilers\project2\ll-1-parser\main.cpp
+	"includes.h"
+	"Token.h"
+	"Terminal.h"
+	"NonTerminal.h"
+	"Grammar.h"
+	"ReadFile.h"
+	"ParsingTable.h"
+	"Derivator.h"
+
+1586806331 e:\handasa\3\compilers\project2\ll-1-parser\include\includes.h
+	<iostream>
+	<memory>
+	<vector>
+	<map>
+	<set>
+
+1586806331 e:\handasa\3\compilers\project2\ll-1-parser\include\token.h
+	"includes.h"
+
+1586806331 e:\handasa\3\compilers\project2\ll-1-parser\include\terminal.h
+	"Token.h"
+
+1586806331 e:\handasa\3\compilers\project2\ll-1-parser\include\nonterminal.h
+	"Token.h"
+
+1587251722 e:\handasa\3\compilers\project2\ll-1-parser\include\grammar.h
+	"includes.h"
+	"NonTerminal.h"
+	"Token.h"
+
+1587243988 e:\handasa\3\compilers\project2\ll-1-parser\include\readfile.h
+	"includes.h"
+	<iostream>
+	<fstream>
+	<string>
+	<regex>
+	"Terminal.h"
+	"NonTerminal.h"
+	"Token.h"
+	"Grammar.h"
+	"unordered_map"
+
+1587243988 e:\handasa\3\compilers\project2\ll-1-parser\include\parsingtable.h
+	"includes.h"
+	"NonTerminal.h"
+	"Token.h"
+
+1587243988 source:e:\handasa\3\compilers\project2\ll-1-parser\src\grammar.cpp
+	"Grammar.h"
+
+1586806331 source:e:\handasa\3\compilers\project2\ll-1-parser\src\nonterminal.cpp
+	"NonTerminal.h"
+
+1587243988 source:e:\handasa\3\compilers\project2\ll-1-parser\src\parsingtable.cpp
+	"ParsingTable.h"
+	"Grammar.h"
+	"NonTerminal.h"
+	"Terminal.h"
+	"Token.h"
+
+1586806331 source:e:\handasa\3\compilers\project2\ll-1-parser\src\terminal.cpp
+	"Terminal.h"
+
+1586806331 source:e:\handasa\3\compilers\project2\ll-1-parser\src\token.cpp
+	"Token.h"
+
+1587265426 source:e:\handasa\3\compilers\project2\ll-1-parser\src\derivator.cpp
+	"Derivator.h"
+	"ParsingTable.h"
+	"NonTerminal.h"
+	"Terminal.h"
+	"Token.h"
+
+1587259732 e:\handasa\3\compilers\project2\ll-1-parser\include\derivator.h
+	"includes.h"
+	"NonTerminal.h"
+	"Terminal.h"
+	"Token.h"
+	<bits/stdc++.h>
+
+1587261294 source:e:\handasa\3\compilers\project2\ll-1-parser\src\readfile.cpp
+	<ReadFile.h>
+

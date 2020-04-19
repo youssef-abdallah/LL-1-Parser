@@ -4,7 +4,7 @@ ReadFile::ReadFile()
 {
     vector<std::string> Current_Production, Next_Production;
     string line;
-    ifstream myfile ("./test/Grammar4.txt");
+    ifstream myfile ("./test/Grammar3.txt");
     if (myfile.is_open()){
         while ( getline (myfile,line) ){
             Next_Production = ExractStrings(line);
@@ -22,7 +22,7 @@ ReadFile::ReadFile()
     } else {
         cout << "Unable to open file";
     }
-    eliminateLeftRecursion();
+    //eliminateLeftRecursion();
     AddProductions();
     /*for (int i = 0; i < GrammarFile.size(); i++){
         vector<std::string> temp = GrammarFile[i];

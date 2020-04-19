@@ -5,6 +5,7 @@
 #include "Grammar.h"
 #include "ReadFile.h"
 #include "ParsingTable.h"
+#include "Derivator.h"
 
 using namespace std;
 
@@ -106,6 +107,24 @@ int main()
         }
         cout << endl;
     }
+
+
+    vector<shared_ptr<Terminal>> input;
+    shared_ptr<Terminal> in1 = make_shared<Terminal>("s");
+    input.push_back(in1);
+    shared_ptr<Terminal> in2 = make_shared<Terminal>("b");
+    input.push_back(in2);
+    shared_ptr<Terminal> in3 = make_shared<Terminal>("t");
+    input.push_back(in3);
+    shared_ptr<Terminal> in4 = make_shared<Terminal>("$");
+    input.push_back(in4);
+
+    Derivator derivator;
+    derivator.setTable(table);
+    derivator.setInput(input);
+    derivator.set_terminals(file.GetTerminals());
+    derivator.setStartingSymbol(grammar.getStartingSymbol());
+    derivator.derive();
 
 
     return 0;
