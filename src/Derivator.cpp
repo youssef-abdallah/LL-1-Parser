@@ -16,7 +16,6 @@ Derivator::~Derivator()
 
 
 void Derivator::derive(){
-    bool stackEmpty = false;
     int it = 0; // input iterator
     shared_ptr<Token> dollarSign = make_shared<Terminal>("$");
     st.push(dollarSign);
@@ -40,7 +39,7 @@ void Derivator::derive(){
                 st.pop();
             }
             else{
-                cout<< "Error : matching terminals failed! Excess " << input[it]->getType()<<endl;
+                cout<< "Error : matching terminals failed! Extra " << TOS->getType()<< " in stack"<<endl;
                 st.pop();
             }
         }
@@ -60,9 +59,11 @@ void Derivator::derive(){
                 }
                 else if(entry[0]->getType()=="synch"){ // MUST BE UPDATED TO HANDLE ERRORS
                     cout << NT->getType()<< " -> synch"<< endl;
+                    st.pop();
                 }
                 else if(entry[0]->getType()=="ERROR"){// MUST BE UPDATED TO HANDLE ERRORS
                     cout << "ERROR : empty cell" << endl;
+                    it++;
                 }
                 else{
                     cout << NT->getType()<< " -> "<< entry[0]->getType() << endl;
