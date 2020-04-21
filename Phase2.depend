@@ -270,7 +270,7 @@
 
 1587170589 D
 
-1587266089 source:e:\handasa\3\compilers\project2\ll-1-parser\main.cpp
+1587504542 source:e:\handasa\3\compilers\project2\ll-1-parser\main.cpp
 	"includes.h"
 	"Token.h"
 	"Terminal.h"
@@ -296,7 +296,10 @@
 1586806331 e:\handasa\3\compilers\project2\ll-1-parser\include\nonterminal.h
 	"Token.h"
 
-1587251722 e:\handasa\3\compilers\project2\ll-1-parser\include\grammar.h
+1587504542 e:\handasa\3\compilers\project2\ll-1-parser\include\grammar.h
+	"includes.h"
+	"NonTerminal.h"
+	"Token.h"
 
 1587170589 m:\projects\ll-1-parser\include\parsingtable.h
 
@@ -305,7 +308,7 @@
 	"NonTerminal.h"
 	"Token.h"
 
-1587243988 e:\handasa\3\compilers\project2\ll-1-parser\include\readfile.h
+1587504542 e:\handasa\3\compilers\project2\ll-1-parser\include\readfile.h
 	"includes.h"
 	<iostream>
 	<fstream>
@@ -316,19 +319,21 @@
 	"Token.h"
 	"Grammar.h"
 	"unordered_map"
+	<bits/stdc++.h>
+	"FactorNode.h"
 
-1587243988 e:\handasa\3\compilers\project2\ll-1-parser\include\parsingtable.h
+1587504542 e:\handasa\3\compilers\project2\ll-1-parser\include\parsingtable.h
 	"includes.h"
 	"NonTerminal.h"
 	"Token.h"
 
-1587243988 source:e:\handasa\3\compilers\project2\ll-1-parser\src\grammar.cpp
+1587504542 source:e:\handasa\3\compilers\project2\ll-1-parser\src\grammar.cpp
 	"Grammar.h"
 
 1586806331 source:e:\handasa\3\compilers\project2\ll-1-parser\src\nonterminal.cpp
 	"NonTerminal.h"
 
-1587243988 source:e:\handasa\3\compilers\project2\ll-1-parser\src\parsingtable.cpp
+1587504542 source:e:\handasa\3\compilers\project2\ll-1-parser\src\parsingtable.cpp
 	"ParsingTable.h"
 	"Grammar.h"
 	"NonTerminal.h"
@@ -341,21 +346,21 @@
 1586806331 source:e:\handasa\3\compilers\project2\ll-1-parser\src\token.cpp
 	"Token.h"
 
-1587265426 source:e:\handasa\3\compilers\project2\ll-1-parser\src\derivator.cpp
+1587504677 source:e:\handasa\3\compilers\project2\ll-1-parser\src\derivator.cpp
 	"Derivator.h"
 	"ParsingTable.h"
 	"NonTerminal.h"
 	"Terminal.h"
 	"Token.h"
 
-1587265950 e:\handasa\3\compilers\project2\ll-1-parser\include\derivator.h
+1587504542 e:\handasa\3\compilers\project2\ll-1-parser\include\derivator.h
 	"includes.h"
 	"NonTerminal.h"
 	"Terminal.h"
 	"Token.h"
 	<bits/stdc++.h>
 
-1587266077 source:e:\handasa\3\compilers\project2\ll-1-parser\src\readfile.cpp
+1587504542 source:e:\handasa\3\compilers\project2\ll-1-parser\src\readfile.cpp
 	<ReadFile.h>
 
 1587060843 source:/home/karim/Desktop/CSED21/Compiler_phase2/main.cpp
@@ -446,5 +451,12 @@
 	<string>
 
 1587492334 source:/home/youssef/Problem Solving/educational round 74 cF/Phase2/Phase2/src/FactorNode.cpp
+	<FactorNode.h>
+
+1587504542 e:\handasa\3\compilers\project2\ll-1-parser\include\factornode.h
+	"includes.h"
+	<string>
+
+1587504542 source:e:\handasa\3\compilers\project2\ll-1-parser\src\factornode.cpp
 	<FactorNode.h>
 

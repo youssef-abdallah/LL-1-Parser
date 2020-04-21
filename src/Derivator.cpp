@@ -24,7 +24,8 @@ void Derivator::derive(){
         cout << "Top of Stack: " << st.top()->getType();
         cout << "   Input: "<<input[it]->getType() << endl;
         shared_ptr<Token> TOS = st.top();// top of stack
-        if(it!=input.size()-1 && TOS->getType()=="$"){
+        int sizeOfInput = input.size()-1;
+        if(it!=sizeOfInput && TOS->getType()=="$"){
             cout << "ERROR : Stack is empty & input isn't done!" << endl;
             break;
         }
@@ -73,7 +74,8 @@ void Derivator::derive(){
             }
             else{
                 cout << NT->getType() << " -> " ;
-                for(int i =0 ; i<entry.size(); i++){
+                int sizeOfEntry = entry.size();
+                for(int i =0 ; i<sizeOfEntry; i++){
                     cout <<entry[i]->getType()<< " ";
                 }
                 cout << endl;
