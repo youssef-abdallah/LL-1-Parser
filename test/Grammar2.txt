@@ -1,0 +1,5 @@
+# E = T Et
+# Et = '+' T Et | \L
+# T = F Tt
+# Tt = '*' F Tt | \L
+# F = 'id' | '(' E ')'

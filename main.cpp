@@ -3,13 +3,15 @@
 #include "Terminal.h"
 #include "NonTerminal.h"
 #include "Grammar.h"
+#include "ReadFile.h"
 #include "ParsingTable.h"
+#include "Derivator.h"
 
 using namespace std;
 
 int main()
 {
-    shared_ptr<NonTerminal> p1 = make_shared<NonTerminal>("E");
+    /*shared_ptr<NonTerminal> p1 = make_shared<NonTerminal>("E");
     shared_ptr<NonTerminal> p2 = make_shared<NonTerminal>("Edash");
     shared_ptr<NonTerminal> p3 = make_shared<NonTerminal>("T");
     shared_ptr<NonTerminal> p4 = make_shared<NonTerminal>("Tdash");
@@ -75,18 +77,40 @@ int main()
             cout << elem.first->getType() << " " << elem2 << " ";
         }
         cout << endl;
-    }
+    }*/
+    ReadFile file;
+    Grammar grammar = file.GetGrammar();
 
+    grammar.computeFirst();
+    map<shared_ptr<Token>, set<string>> mp = grammar.getFirst();
+    cout << "FIRST:" << endl << endl;
+    for (auto elem : mp) {
+        for (auto elem2 : elem.second) {
+            cout << elem.first->getType() << " " << elem2 << " ";
+        }
+        cout << endl;
+    }
+    cout << '\n' << '\n';
+    grammar.computeFollow();
+    mp = grammar.getFollow();
+    cout << endl << endl << "FOLLOW:" << endl << endl;
+    for (auto elem : mp) {
+        for (auto elem2 : elem.second) {
+            cout << elem.first->getType() << " " << elem2 << " ";
+        }
+        cout << endl;
+    }
 
     ParsingTable parsingTable;
     parsingTable.set_first(grammar.getFirst());
     parsingTable.set_follow(grammar.getFollow());
-    parsingTable.set_non_terminals(v8);
-    parsingTable.set_terminals(v9);
+    parsingTable.set_non_terminals(file.GetNonTerminals());
+    parsingTable.set_terminals(file.GetTerminals());
     parsingTable.set_productions(grammar.getProductions());
     parsingTable.fill_parsing_table();
     map<shared_ptr<Token>, map<shared_ptr<Token>, vector<shared_ptr<Token>>>> table = parsingTable.table;
 
+    cout << endl << endl << "Parsing TABLE:" << endl << endl;
     for (auto elem : table) {
         for (auto elem2 : elem.second) {
             cout << elem.first->getType() << " " << elem2.first->getType() << " ";
@@ -98,6 +122,24 @@ int main()
         }
         cout << endl;
     }
+
+
+    vector<shared_ptr<Terminal>> input;
+    shared_ptr<Terminal> in1 = make_shared<Terminal>("s");
+    input.push_back(in1);
+    shared_ptr<Terminal> in2 = make_shared<Terminal>("b");
+    input.push_back(in2);
+    shared_ptr<Terminal> in3 = make_shared<Terminal>("t");
+    input.push_back(in3);
+    shared_ptr<Terminal> in4 = make_shared<Terminal>("$");
+    input.push_back(in4);
+
+    Derivator derivator;
+    derivator.setTable(table);
+    derivator.setInput(input);
+    derivator.set_terminals(file.GetTerminals());
+    derivator.setStartingSymbol(grammar.getStartingSymbol());
+    derivator.derive();
 
 
     return 0;
