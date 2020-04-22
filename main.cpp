@@ -124,7 +124,7 @@ int main()
         cout << endl;
     }
 
-    LexicalAnalyzer::getInstance().execute();
+    vector<string> stringInput = LexicalAnalyzer::getInstance().execute();
     /*vector<shared_ptr<Terminal>> input;
     shared_ptr<Terminal> in1 = make_shared<Terminal>("s");
     input.push_back(in1);
@@ -133,14 +133,19 @@ int main()
     shared_ptr<Terminal> in3 = make_shared<Terminal>("t");
     input.push_back(in3);
     shared_ptr<Terminal> in4 = make_shared<Terminal>("$");
-    input.push_back(in4);
+    input.push_back(in4);*/
+
+    vector<shared_ptr<Terminal>> input;
+    for(int k = 0 ; k<(int) stringInput.size() ; k++){
+        input.push_back(make_shared<Terminal>(stringInput[k]));
+    }
 
     Derivator derivator;
     derivator.setTable(table);
     derivator.setInput(input);
     derivator.set_terminals(file.GetTerminals());
     derivator.setStartingSymbol(grammar.getStartingSymbol());
-    derivator.derive();*/
+    derivator.derive();
 
 
     return 0;
