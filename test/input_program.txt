@@ -1,4 +1,4 @@
-int sum, count, pass,
+ int sum, count, pass,
 num;
 while(pass!=10)
 {

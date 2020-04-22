@@ -42,12 +42,6 @@ void Scanner::space_splitter(string str, char delim)
 {
     string line = str;
     line = line.substr(1, (int) line.size() - 2);
-/*
-    while ((index = line.find("\\", pos)) != (int) string::npos) {
-        line.replace(index, 1, "" );
-        pos = index + 1;
-    }
-*/
     std::istringstream ss;
     ss.str(line);
     std::string token;
@@ -272,12 +266,7 @@ string Scanner::additional_manipulations(string line) {
         RHS.replace(index, 2, "*");
         pos = index + 1;
     }
-/*
-    while ((index = RHS.find("~+", pos)) != (int) string::npos) {
-        RHS.replace(index, 2, "*");
-        pos = index + 1;
-    }
-*/
+
     pos = 0;
     while ((index = RHS.find("~)", pos)) != (int) string::npos) {
         RHS.replace(index, 2, ")");
@@ -481,14 +470,14 @@ void Scanner::add_first(){
     reg_expressions = temp;
 }
 
+
 vector<string> Scanner::process_input_program(string file_name){
     vector<string> results;
-    ifstream input_file;
-    input_file.open (file_name);
-    if (!input_file) cerr << "error";
+    fstream input_file;
+    input_file.open (file_name, std::fstream::in | std::fstream::out | std::fstream::app);
     string next_line;
+
     if (input_file.is_open()){
-        input_file >> next_line;
         while (getline(input_file, next_line)){
             std::istringstream ss;
             ss.str(next_line);
