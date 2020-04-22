@@ -74,7 +74,7 @@ void ReadFile::AddProductions(){
         }
 
         for(unsigned int j = 3; j < temp.size(); j++){
-            if (temp[j] == "|" || ((temp[j].find("\\")) != std::string::npos)){
+            if (temp[j] == "|" || ((temp[j].find("\\L")) != std::string::npos)){
                 vector <shared_ptr<Token>> Temp = production;
                 production.clear();
                 productions.push_back(Temp);

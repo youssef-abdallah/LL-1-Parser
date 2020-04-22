@@ -68,7 +68,7 @@ string MinimizeDFASimulation::simulate(string InputString) {
         if (LastChar != -1){
             if (LastChar == (int) InputString.length() - 1) return LastToken;
             CurrentStateID = initialStateID;
-            return LastToken + '\n' + simulate(InputString.substr(LastChar + 1));
+            return LastToken + ' ' + simulate(InputString.substr(LastChar + 1));
         } else {
             return "Expected : " + LastToken;
         }

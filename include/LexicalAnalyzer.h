@@ -10,14 +10,14 @@
 #include "DFASimulator.h"
 #include "Minimize.h"
 #include "MinimizeDFASimulation.h"
-
+#include <regex>
 
 
 class LexicalAnalyzer {
 
 public:
     static LexicalAnalyzer& getInstance();
-    static void execute();
+    static vector<std::string> execute();
 
     LexicalAnalyzer(LexicalAnalyzer const&) = delete;
     void operator=(LexicalAnalyzer const&) = delete;

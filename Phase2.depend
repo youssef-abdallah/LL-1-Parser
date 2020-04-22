@@ -54,12 +54,15 @@
 	"NonTerminal.h"
 	"Token.h"
 
-1587515840 m:\projects\ll-1-parser\include\includes.h
+1587557778 m:\projects\ll-1-parser\include\includes.h
 	<iostream>
 	<memory>
 	<vector>
 	<map>
 	<set>
+	<fstream>
+	<sstream>
+	<bits/stdc++.h>
 
 1587515840 m:\projects\ll-1-parser\include\nonterminal.h
 	"Token.h"
@@ -79,7 +82,7 @@
 1587515840 source:m:\projects\ll-1-parser\src\token.cpp
 	"Token.h"
 
-1587515840 source:m:\projects\ll-1-parser\main.cpp
+1587557778 source:m:\projects\ll-1-parser\main.cpp
 	"includes.h"
 	"Token.h"
 	"Terminal.h"
@@ -88,6 +91,7 @@
 	"ReadFile.h"
 	"ParsingTable.h"
 	"Derivator.h"
+	"LexicalAnalyzer.h"
 
 1587516430 m:\projects\ll-1-parser\include\readfile.h
 	"includes.h"
@@ -103,7 +107,7 @@
 	<bits/stdc++.h>
 	"FactorNode.h"
 
-1587517730 source:m:\projects\ll-1-parser\src\readfile.cpp
+1587558428 source:m:\projects\ll-1-parser\src\readfile.cpp
 	<ReadFile.h>
 
 1587552637 /home/youssef/Problem Solving/educational round 74 cF/Phase2/Phase2/include/ReadFile.h
@@ -596,4 +600,120 @@
 
 1585188061 source:/home/youssef/Problem Solving/educational round 74 cF/Phase2/Phase2/src/StateMachine.cpp
 	"../include/StateMachine.h"
+
+1587559443 m:\projects\ll-1-parser\include\lexicalanalyzer.h
+	"includes.h"
+	"NFAState.h"
+	"LexicalAnalyzer.h"
+	"RegularExpression.h"
+	"NFABuilder.h"
+	"Scanner.h"
+	"DFABuilder.h"
+	"NFASimulator.h"
+	"DFASimulator.h"
+	"Minimize.h"
+	"MinimizeDFASimulation.h"
+	<regex>
+
+1587557778 m:\projects\ll-1-parser\include\nfastate.h
+	"includes.h"
+
+1587557778 m:\projects\ll-1-parser\include\regularexpression.h
+	"includes.h"
+
+1587557778 m:\projects\ll-1-parser\include\nfabuilder.h
+	"includes.h"
+	"NFAState.h"
+	"StateMachine.h"
+
+1587557778 m:\projects\ll-1-parser\include\statemachine.h
+	"includes.h"
+	"NFAState.h"
+
+1587557778 m:\projects\ll-1-parser\include\scanner.h
+	"includes.h"
+	<map>
+	"RegularDefinition.h"
+	"RegularExpression.h"
+
+1587557778 m:\projects\ll-1-parser\include\regulardefinition.h
+	"includes.h"
+
+1587557778 m:\projects\ll-1-parser\include\dfabuilder.h
+	"NFAState.h"
+	"StateMachine.h"
+	"includes.h"
+	"DFAState.h"
+
+1587557778 m:\projects\ll-1-parser\include\dfastate.h
+	"includes.h"
+	"NFAState.h"
+
+1587557778 m:\projects\ll-1-parser\include\nfasimulator.h
+	"StateMachine.h"
+
+1587557778 m:\projects\ll-1-parser\include\dfasimulator.h
+	"includes.h"
+	"DFAState.h"
+
+1587557778 m:\projects\ll-1-parser\include\minimize.h
+	<includes.h>
+	<Node.h>
+	<ColorNode.h>
+	<algorithm>
+	<DFAState.h>
+
+1587557778 m:\projects\ll-1-parser\include\node.h
+	<string>
+	<sstream>
+
+1587557778 m:\projects\ll-1-parser\include\colornode.h
+
+1587557778 m:\projects\ll-1-parser\include\minimizedfasimulation.h
+	<Minimize.h>
+
+1587557778 source:m:\projects\ll-1-parser\src\colornode.cpp
+	"ColorNode.h"
+
+1587557778 source:m:\projects\ll-1-parser\src\dfabuilder.cpp
+	"DFABuilder.h"
+
+1587557778 source:m:\projects\ll-1-parser\src\dfasimulator.cpp
+	"DFASimulator.h"
+
+1587557778 source:m:\projects\ll-1-parser\src\dfastate.cpp
+	"DFAState.h"
+
+1587557778 source:m:\projects\ll-1-parser\src\minimize.cpp
+	<Minimize.h>
+
+1587559267 source:m:\projects\ll-1-parser\src\minimizedfasimulation.cpp
+	<MinimizeDFASimulation.h>
+
+1587557778 source:m:\projects\ll-1-parser\src\nfabuilder.cpp
+	"../include/NFABuilder.h"
+
+1587557778 source:m:\projects\ll-1-parser\src\nfasimulator.cpp
+	"NFASimulator.h"
+
+1587557778 source:m:\projects\ll-1-parser\src\nfastate.cpp
+	"../include/NFAState.h"
+
+1587557778 source:m:\projects\ll-1-parser\src\node.cpp
+	"Node.h"
+
+1587557778 source:m:\projects\ll-1-parser\src\regulardefinition.cpp
+	"../include/RegularDefinition.h"
+
+1587557778 source:m:\projects\ll-1-parser\src\regularexpression.cpp
+	"../include/RegularExpression.h"
+
+1587557778 source:m:\projects\ll-1-parser\src\scanner.cpp
+	"../include/Scanner.h"
+
+1587557778 source:m:\projects\ll-1-parser\src\statemachine.cpp
+	"../include/StateMachine.h"
+
+1587557858 source:m:\projects\ll-1-parser\src\lexicalanalyzer.cpp
+	"../include/LexicalAnalyzer.h"
 

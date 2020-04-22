@@ -9,7 +9,8 @@ LexicalAnalyzer& LexicalAnalyzer::getInstance() {
     return instance;
 }
 
-void LexicalAnalyzer::execute() {
+vector<std::string> LexicalAnalyzer::execute() {
+    vector<std::string> Result;
     Scanner::getInstance().read_lexical_rules("./test/lexical_rules.txt");
     vector<RegularExpression> regularExpressions = Scanner::getInstance().reg_expressions;
     vector<StateMachine> stateMachines;
@@ -47,8 +48,16 @@ void LexicalAnalyzer::execute() {
 
     MinimizeDFASimulation minsimulator(minimize);
     for (int i = 0; i < (int) results.size(); i++){
-        cout << minsimulator.simulate(results[i]) << '\n';
+        std::string str = minsimulator.simulate(results[i]);
+        std::regex Split_Space("\\s+");
+        std::vector<std::string> result{std::sregex_token_iterator(str.begin(), str.end(), Split_Space, -1), {}};
+        for (unsigned j = 0; j < result.size(); j++){
+            cout << "result : "<<  result[j] << '\n';
+            Result.push_back(result[j]);
+        }
+
+
         minsimulator.Reset();
     }
-
+    return Result;
 }
