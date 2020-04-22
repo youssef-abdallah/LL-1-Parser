@@ -16,12 +16,15 @@
 1586641986 /home/youssef/Problem Solving/educational round 74 cF/Phase2/Phase2/include/Token.h
 	"includes.h"
 
-1586640384 /home/youssef/Problem Solving/educational round 74 cF/Phase2/Phase2/include/includes.h
+1587553131 /home/youssef/Problem Solving/educational round 74 cF/Phase2/Phase2/include/includes.h
 	<iostream>
 	<memory>
 	<vector>
 	<map>
 	<set>
+	<fstream>
+	<sstream>
+	<bits/stdc++.h>
 
 1586633297 source:/home/youssef/Problem Solving/educational round 74 cF/Phase2/Phase2/src/Terminal.cpp
 	"Terminal.h"
@@ -32,7 +35,7 @@
 1586633224 source:/home/youssef/Problem Solving/educational round 74 cF/Phase2/Phase2/src/Token.cpp
 	"Token.h"
 
-1587492334 source:/home/youssef/Problem Solving/educational round 74 cF/Phase2/Phase2/main.cpp
+1587554764 source:/home/youssef/Problem Solving/educational round 74 cF/Phase2/Phase2/main.cpp
 	"includes.h"
 	"Token.h"
 	"Terminal.h"
@@ -41,6 +44,7 @@
 	"ReadFile.h"
 	"ParsingTable.h"
 	"Derivator.h"
+	"LexicalAnalyzer.h"
 
 1587515840 source:m:\projects\ll-1-parser\src\grammar.cpp
 	"Grammar.h"
@@ -102,7 +106,7 @@
 1587517730 source:m:\projects\ll-1-parser\src\readfile.cpp
 	<ReadFile.h>
 
-1587492334 /home/youssef/Problem Solving/educational round 74 cF/Phase2/Phase2/include/ReadFile.h
+1587552637 /home/youssef/Problem Solving/educational round 74 cF/Phase2/Phase2/include/ReadFile.h
 	"includes.h"
 	<iostream>
 	<fstream>
@@ -266,7 +270,7 @@
 	"NonTerminal.h"
 	"Token.h"
 
-1587492534 source:/home/youssef/Problem Solving/educational round 74 cF/Phase2/Phase2/src/ReadFile.cpp
+1587552638 source:/home/youssef/Problem Solving/educational round 74 cF/Phase2/Phase2/src/ReadFile.cpp
 	<ReadFile.h>
 
 1587170589 D
@@ -420,7 +424,7 @@
 	"NonTerminal.h"
 	"Token.h"
 
-1587491506 source:/home/youssef/Problem Solving/educational round 74 cF/Phase2/Phase2/src/Derivator.cpp
+1587552638 source:/home/youssef/Problem Solving/educational round 74 cF/Phase2/Phase2/src/Derivator.cpp
 	"Derivator.h"
 	"ParsingTable.h"
 	"NonTerminal.h"
@@ -450,11 +454,11 @@
 	"Terminal.h"
 	"Token.h"
 
-1587492334 /home/youssef/Problem Solving/educational round 74 cF/Phase2/Phase2/include/FactorNode.h
+1587552637 /home/youssef/Problem Solving/educational round 74 cF/Phase2/Phase2/include/FactorNode.h
 	"includes.h"
 	<string>
 
-1587492334 source:/home/youssef/Problem Solving/educational round 74 cF/Phase2/Phase2/src/FactorNode.cpp
+1587552638 source:/home/youssef/Problem Solving/educational round 74 cF/Phase2/Phase2/src/FactorNode.cpp
 	<FactorNode.h>
 
 1587504542 e:\handasa\3\compilers\project2\ll-1-parser\include\factornode.h
@@ -477,4 +481,119 @@
 	"NonTerminal.h"
 	"Terminal.h"
 	"Token.h"
+
+1585327254 source:/home/youssef/Problem Solving/educational round 74 cF/Phase2/Phase2/src/ColorNode.cpp
+	"ColorNode.h"
+
+1585327253 /home/youssef/Problem Solving/educational round 74 cF/Phase2/Phase2/include/ColorNode.h
+
+1585327254 source:/home/youssef/Problem Solving/educational round 74 cF/Phase2/Phase2/src/DFABuilder.cpp
+	"DFABuilder.h"
+
+1585327253 /home/youssef/Problem Solving/educational round 74 cF/Phase2/Phase2/include/DFABuilder.h
+	"NFAState.h"
+	"StateMachine.h"
+	"includes.h"
+	"DFAState.h"
+
+1585223397 /home/youssef/Problem Solving/educational round 74 cF/Phase2/Phase2/include/NFAState.h
+	"includes.h"
+
+1585188061 /home/youssef/Problem Solving/educational round 74 cF/Phase2/Phase2/include/StateMachine.h
+	"includes.h"
+	"NFAState.h"
+
+1585327253 /home/youssef/Problem Solving/educational round 74 cF/Phase2/Phase2/include/DFAState.h
+	"includes.h"
+	"NFAState.h"
+
+1585327254 source:/home/youssef/Problem Solving/educational round 74 cF/Phase2/Phase2/src/DFASimulator.cpp
+	"DFASimulator.h"
+
+1585327253 /home/youssef/Problem Solving/educational round 74 cF/Phase2/Phase2/include/DFASimulator.h
+	"includes.h"
+	"DFAState.h"
+
+1585327254 source:/home/youssef/Problem Solving/educational round 74 cF/Phase2/Phase2/src/DFAState.cpp
+	"DFAState.h"
+
+1587554908 source:/home/youssef/Problem Solving/educational round 74 cF/Phase2/Phase2/src/LexicalAnalyzer.cpp
+	"../include/LexicalAnalyzer.h"
+
+1585327253 /home/youssef/Problem Solving/educational round 74 cF/Phase2/Phase2/include/LexicalAnalyzer.h
+	"includes.h"
+	"NFAState.h"
+	"LexicalAnalyzer.h"
+	"RegularExpression.h"
+	"NFABuilder.h"
+	"Scanner.h"
+	"DFABuilder.h"
+	"NFASimulator.h"
+	"DFASimulator.h"
+	"Minimize.h"
+	"MinimizeDFASimulation.h"
+
+1585097527 /home/youssef/Problem Solving/educational round 74 cF/Phase2/Phase2/include/RegularExpression.h
+	"includes.h"
+
+1585097527 /home/youssef/Problem Solving/educational round 74 cF/Phase2/Phase2/include/NFABuilder.h
+	"includes.h"
+	"NFAState.h"
+	"StateMachine.h"
+
+1585834639 /home/youssef/Problem Solving/educational round 74 cF/Phase2/Phase2/include/Scanner.h
+	"includes.h"
+	<map>
+	"RegularDefinition.h"
+	"RegularExpression.h"
+
+1584974940 /home/youssef/Problem Solving/educational round 74 cF/Phase2/Phase2/include/RegularDefinition.h
+	"includes.h"
+
+1585097527 /home/youssef/Problem Solving/educational round 74 cF/Phase2/Phase2/include/NFASimulator.h
+	"StateMachine.h"
+
+1585327253 /home/youssef/Problem Solving/educational round 74 cF/Phase2/Phase2/include/Minimize.h
+	<includes.h>
+	<Node.h>
+	<ColorNode.h>
+	<algorithm>
+	<DFAState.h>
+
+1585327253 /home/youssef/Problem Solving/educational round 74 cF/Phase2/Phase2/include/Node.h
+	<string>
+	<sstream>
+
+1585842081 /home/youssef/Problem Solving/educational round 74 cF/Phase2/Phase2/include/MinimizeDFASimulation.h
+	<Minimize.h>
+
+1585327254 source:/home/youssef/Problem Solving/educational round 74 cF/Phase2/Phase2/src/Minimize.cpp
+	<Minimize.h>
+
+1585842587 source:/home/youssef/Problem Solving/educational round 74 cF/Phase2/Phase2/src/MinimizeDFASimulation.cpp
+	<MinimizeDFASimulation.h>
+
+1585188061 source:/home/youssef/Problem Solving/educational round 74 cF/Phase2/Phase2/src/NFABuilder.cpp
+	"../include/NFABuilder.h"
+
+1585101392 source:/home/youssef/Problem Solving/educational round 74 cF/Phase2/Phase2/src/NFASimulator.cpp
+	"NFASimulator.h"
+
+1585015176 source:/home/youssef/Problem Solving/educational round 74 cF/Phase2/Phase2/src/NFAState.cpp
+	"../include/NFAState.h"
+
+1585327254 source:/home/youssef/Problem Solving/educational round 74 cF/Phase2/Phase2/src/Node.cpp
+	"Node.h"
+
+1584974940 source:/home/youssef/Problem Solving/educational round 74 cF/Phase2/Phase2/src/RegularDefinition.cpp
+	"../include/RegularDefinition.h"
+
+1585097527 source:/home/youssef/Problem Solving/educational round 74 cF/Phase2/Phase2/src/RegularExpression.cpp
+	"../include/RegularExpression.h"
+
+1587555450 source:/home/youssef/Problem Solving/educational round 74 cF/Phase2/Phase2/src/Scanner.cpp
+	"../include/Scanner.h"
+
+1585188061 source:/home/youssef/Problem Solving/educational round 74 cF/Phase2/Phase2/src/StateMachine.cpp
+	"../include/StateMachine.h"
 

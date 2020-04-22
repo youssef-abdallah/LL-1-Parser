@@ -6,6 +6,7 @@
 #include "ReadFile.h"
 #include "ParsingTable.h"
 #include "Derivator.h"
+#include "LexicalAnalyzer.h"
 
 using namespace std;
 
@@ -123,8 +124,8 @@ int main()
         cout << endl;
     }
 
-
-    vector<shared_ptr<Terminal>> input;
+    LexicalAnalyzer::getInstance().execute();
+    /*vector<shared_ptr<Terminal>> input;
     shared_ptr<Terminal> in1 = make_shared<Terminal>("s");
     input.push_back(in1);
     shared_ptr<Terminal> in2 = make_shared<Terminal>("b");
@@ -139,7 +140,7 @@ int main()
     derivator.setInput(input);
     derivator.set_terminals(file.GetTerminals());
     derivator.setStartingSymbol(grammar.getStartingSymbol());
-    derivator.derive();
+    derivator.derive();*/
 
 
     return 0;
