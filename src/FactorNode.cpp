@@ -1,6 +1,6 @@
 #include <FactorNode.h>
 
-FactorNode::FactorNode(int Size,  vector<std::string> CommonString){
+FactorNode::FactorNode(unsigned Size,  vector<std::string> CommonString){
     this->Size = Size;
     this->CommonString = CommonString;
 
@@ -10,7 +10,7 @@ FactorNode::~FactorNode(){
 
 }
 
-int FactorNode::GetSize(){
+unsigned FactorNode::GetSize(){
     return this->Size;
 }
 

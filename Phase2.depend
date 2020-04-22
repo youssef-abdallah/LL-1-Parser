@@ -42,40 +42,40 @@
 	"ParsingTable.h"
 	"Derivator.h"
 
-1587170589 source:m:\projects\ll-1-parser\src\grammar.cpp
+1587515840 source:m:\projects\ll-1-parser\src\grammar.cpp
 	"Grammar.h"
 
-1587170589 m:\projects\ll-1-parser\include\grammar.h
+1587515840 m:\projects\ll-1-parser\include\grammar.h
 	"includes.h"
 	"NonTerminal.h"
 	"Token.h"
 
-1587170350 m:\projects\ll-1-parser\include\includes.h
+1587515840 m:\projects\ll-1-parser\include\includes.h
 	<iostream>
 	<memory>
 	<vector>
 	<map>
 	<set>
 
-1587170350 m:\projects\ll-1-parser\include\nonterminal.h
+1587515840 m:\projects\ll-1-parser\include\nonterminal.h
 	"Token.h"
 
-1587170350 m:\projects\ll-1-parser\include\token.h
+1587515840 m:\projects\ll-1-parser\include\token.h
 	"includes.h"
 
-1587170350 source:m:\projects\ll-1-parser\src\nonterminal.cpp
+1587515840 source:m:\projects\ll-1-parser\src\nonterminal.cpp
 	"NonTerminal.h"
 
-1587170350 source:m:\projects\ll-1-parser\src\terminal.cpp
+1587515840 source:m:\projects\ll-1-parser\src\terminal.cpp
 	"Terminal.h"
 
-1587170350 m:\projects\ll-1-parser\include\terminal.h
+1587515840 m:\projects\ll-1-parser\include\terminal.h
 	"Token.h"
 
-1587170350 source:m:\projects\ll-1-parser\src\token.cpp
+1587515840 source:m:\projects\ll-1-parser\src\token.cpp
 	"Token.h"
 
-1587284406 source:m:\projects\ll-1-parser\main.cpp
+1587515840 source:m:\projects\ll-1-parser\main.cpp
 	"includes.h"
 	"Token.h"
 	"Terminal.h"
@@ -83,8 +83,9 @@
 	"Grammar.h"
 	"ReadFile.h"
 	"ParsingTable.h"
+	"Derivator.h"
 
-1587278051 m:\projects\ll-1-parser\include\readfile.h
+1587516430 m:\projects\ll-1-parser\include\readfile.h
 	"includes.h"
 	<iostream>
 	<fstream>
@@ -98,7 +99,7 @@
 	<bits/stdc++.h>
 	"FactorNode.h"
 
-1587284358 source:m:\projects\ll-1-parser\src\readfile.cpp
+1587517730 source:m:\projects\ll-1-parser\src\readfile.cpp
 	<ReadFile.h>
 
 1587492334 /home/youssef/Problem Solving/educational round 74 cF/Phase2/Phase2/include/ReadFile.h
@@ -301,7 +302,10 @@
 	"NonTerminal.h"
 	"Token.h"
 
-1587170589 m:\projects\ll-1-parser\include\parsingtable.h
+1587515840 m:\projects\ll-1-parser\include\parsingtable.h
+	"includes.h"
+	"NonTerminal.h"
+	"Token.h"
 
 1587170589 0d773976e72b21394a6d3c09c026d6ad5c70d
 	"includes.h"
@@ -432,14 +436,14 @@
 
 1587491506 ++.h>
 
-1587174946 m:\projects\ll-1-parser\include\factornode.h
+1587517430 m:\projects\ll-1-parser\include\factornode.h
 	"includes.h"
 	<string>
 
-1587174949 source:m:\projects\ll-1-parser\src\factornode.cpp
+1587517384 source:m:\projects\ll-1-parser\src\factornode.cpp
 	<FactorNode.h>
 
-1587170589 source:m:\projects\ll-1-parser\src\parsingtable.cpp
+1587515840 source:m:\projects\ll-1-parser\src\parsingtable.cpp
 	"ParsingTable.h"
 	"Grammar.h"
 	"NonTerminal.h"
@@ -459,4 +463,18 @@
 
 1587504542 source:e:\handasa\3\compilers\project2\ll-1-parser\src\factornode.cpp
 	<FactorNode.h>
+
+1587515840 m:\projects\ll-1-parser\include\derivator.h
+	"includes.h"
+	"NonTerminal.h"
+	"Terminal.h"
+	"Token.h"
+	<bits/stdc++.h>
+
+1587515840 source:m:\projects\ll-1-parser\src\derivator.cpp
+	"Derivator.h"
+	"ParsingTable.h"
+	"NonTerminal.h"
+	"Terminal.h"
+	"Token.h"
 

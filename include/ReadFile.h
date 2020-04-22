@@ -38,7 +38,7 @@ private:
 	vector<std::string> GetCommon(vector<std::string> v1, vector<std::string> v2);
 	void InsertNode(int ProductionNum1 , int ProductionNum2, vector<std::string> Common);
 	void AddLeftFactoring(vector<vector<FactorNode>> Elemination, vector<vector<std::string>> Productions, std::string NonTerminal);
-	vector<std::string> SubVector(int Size, int Limit, vector<std::string> test);
+	vector<std::string> SubVector(unsigned Size, unsigned Limit, vector<std::string> test);
 public:
 	ReadFile();
 	~ReadFile();

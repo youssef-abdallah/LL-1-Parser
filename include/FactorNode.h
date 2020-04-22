@@ -7,13 +7,13 @@
 struct FactorNode
 {
 private:
-    int Size;
+    unsigned Size;
     vector<int> Productions;
      vector<std::string> CommonString;
 public:
-	FactorNode(int Size,  vector<std::string> CommonString);
+	FactorNode(unsigned Size,  vector<std::string> CommonString);
 	~FactorNode();
-	int GetSize();
+	unsigned GetSize();
 	vector<int> GetProductions();
     vector<std::string> GetCommonString();
     void AddNumOfProduction(int Num);

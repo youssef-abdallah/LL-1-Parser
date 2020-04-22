@@ -25,9 +25,9 @@ ReadFile::ReadFile()
     eliminateLeftRecursion();
     EliminateLeftFactoring();
     AddProductions();
-    for (int i = 0; i < LLGrammarFile.size(); i++){
+    for (unsigned i = 0; i < LLGrammarFile.size(); i++){
         vector<std::string> temp =  LLGrammarFile[i];
-        for(int j = 0; j < temp.size(); j++){
+        for(unsigned j = 0; j < temp.size(); j++){
             cout << temp[j] << " ";
         }
         cout << '\n';
@@ -223,13 +223,13 @@ void ReadFile::eliminateImmediateLeftRecursion(unsigned int sz) {
 
 void ReadFile::EliminateLeftFactoring(){
     vector<vector<FactorNode>> Eliminations;
-    for (int i = 0; i < GrammarFile.size(); i++){
+    for (unsigned i = 0; i < GrammarFile.size(); i++){
         vector<std::string> Current_Production = GrammarFile[i];
         vector<vector<std::string>> Productions = SplitProduction(Current_Production);
-        for (int j = 0; j < Productions.size() - 1; j++){
+        for (unsigned j = 0; j < Productions.size() - 1; j++){
             auto temp = Used_Production.find(j);
             if (temp == Used_Production.end()){
-                for (int k = j + 1; k < Productions.size(); k++){
+                for (unsigned k = j + 1; k < Productions.size(); k++){
                     auto temp = Used_Production.find(k);
                     if (temp == Used_Production.end()){
                         vector<std::string> CommonString = GetCommon(Productions[j], Productions[k]);
@@ -259,7 +259,7 @@ void ReadFile::EliminateLeftFactoring(){
 vector<vector<std::string>> ReadFile::SplitProduction(vector<std::string> Production){
     vector<vector<std::string>> Result;
     vector<std::string> Temp;
-    for (int i = 3; i < Production.size(); i++){
+    for (unsigned i = 3; i < Production.size(); i++){
         if (Production[i] == "|"){
             Result.push_back(Temp);
             Temp.clear();
@@ -295,7 +295,7 @@ bool CompareSize(FactorNode n1, FactorNode n2){
 
 void ReadFile::InsertNode(int ProductionNum1 , int ProductionNum2, vector<std::string> Common){
     int Check = -1;
-    for(int i = 0; i < nodes.size(); i++){
+    for(unsigned i = 0; i < nodes.size(); i++){
         if (Common.size() == nodes[i].GetSize()){
             Check = i;
             break;
@@ -315,15 +315,15 @@ void ReadFile::InsertNode(int ProductionNum1 , int ProductionNum2, vector<std::s
 
 void ReadFile::AddLeftFactoring(vector<vector<FactorNode>> Elemination, vector<vector<std::string>> Productions, std::string NonTerminal){
     unordered_map <int, bool> Used;
-    for(int i = 0; i < Elemination.size(); i++){
+    for(unsigned i = 0; i < Elemination.size(); i++){
         vector<FactorNode> temp = Elemination[i];
         for (int j = temp.size() - 2; j >= 0; j --){
             vector<int> tt = temp[j + 1].GetProductions();
             vector<int> tt2 = temp[j].GetProductions();
-            for (int k = 0; k < tt2.size(); k++){
+            for (unsigned k = 0; k < tt2.size(); k++){
                 Used.emplace(tt2[k], true);
             }
-            for (int k = 0; k < tt.size(); k++){
+            for (unsigned k = 0; k < tt.size(); k++){
                 auto te = Used.find(tt[k]);
                 if (te == Used.end()){
                     ((Elemination[i])[j]).AddNumOfProduction(tt[k]);
@@ -338,10 +338,10 @@ void ReadFile::AddLeftFactoring(vector<vector<FactorNode>> Elemination, vector<v
     FirstProduction.push_back("#");
     FirstProduction.push_back(NonTerminal);
     FirstProduction.push_back("=");
-    for (int i = 0; i < Elemination.size(); i++){
+    for (unsigned i = 0; i < Elemination.size(); i++){
         vector<FactorNode> temp = Elemination[i];
         vector<int> Nums= temp[0].GetProductions();
-        for (int j = 0; j < Nums.size(); j++){
+        for (unsigned j = 0; j < Nums.size(); j++){
             FirstSet[Nums[j]] = true;
         }
         vector <string> t = temp[0].GetCommonString();
@@ -353,7 +353,7 @@ void ReadFile::AddLeftFactoring(vector<vector<FactorNode>> Elemination, vector<v
         FirstProduction.push_back("|");
         index = index + temp.size();
     }
-    for (int i = 0; i < Productions.size(); i++){
+    for (unsigned i = 0; i < Productions.size(); i++){
         if (!FirstSet[i]){
             FirstProduction.insert(FirstProduction.end(), Productions[i].begin(), Productions[i].end());
             FirstProduction.push_back("|");
@@ -362,7 +362,7 @@ void ReadFile::AddLeftFactoring(vector<vector<FactorNode>> Elemination, vector<v
     FirstProduction.pop_back();
     LLGrammarFile.push_back(FirstProduction);
     index = 1;
-    for(int i = 0; i < Elemination.size(); i++){
+    for(unsigned i = 0; i < Elemination.size(); i++){
         vector<FactorNode> temp = Elemination[i];
         if (i == 0){
             index = temp.size();
@@ -378,7 +378,7 @@ void ReadFile::AddLeftFactoring(vector<vector<FactorNode>> Elemination, vector<v
             vector<int> Nums= temp[j].GetProductions();
             int CheckFirst = 0;
             bool Enter = true;
-            for (int k = 0; k < Nums.size(); k++){
+            for (unsigned k = 0; k < Nums.size(); k++){
                 auto ptr = Used.find(Nums[k]);
                 if (ptr == Used.end()){
                     Used.emplace(Nums[k], true);
@@ -391,15 +391,15 @@ void ReadFile::AddLeftFactoring(vector<vector<FactorNode>> Elemination, vector<v
                 }
                 if (Enter){
                         Enter = false;
-                    int CurrentSize = temp[j].GetCommonString().size();;
-                    int previousSize;
-                    if (j == temp.size() - 1){
+                    unsigned CurrentSize = temp[j].GetCommonString().size();;
+                    unsigned previousSize;
+                    if (j == ((int)temp.size() - 1)){
                         previousSize = (Productions[Nums[k]]).size();
                     } else {
                         previousSize = temp[j + 1].GetCommonString().size();
                     }
                     vector<std::string> res;
-                    if (j == temp.size() - 1){
+                    if (j == ((int)temp.size() - 1)){
                         res = SubVector(CurrentSize, previousSize, Productions[Nums[k]]);
                     } else {
                         res = SubVector(CurrentSize, previousSize, Productions[Nums[k]]);
@@ -427,9 +427,9 @@ void ReadFile::AddLeftFactoring(vector<vector<FactorNode>> Elemination, vector<v
     }
 }
 
-vector<std::string> ReadFile::SubVector(int Size, int Limit, vector<std::string> test){
+vector<std::string> ReadFile::SubVector(unsigned Size, unsigned Limit, vector<std::string> test){
     vector<std::string> result;
-    for (int i = 0; i < test.size(); i++){
+    for (unsigned i = 0; i < test.size(); i++){
         if (i >= Size && i < Limit){
             result.push_back(test[i]);
         }
