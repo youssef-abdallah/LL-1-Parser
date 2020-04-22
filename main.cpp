@@ -109,6 +109,7 @@ int main()
     parsingTable.set_terminals(file.GetTerminals());
     parsingTable.set_productions(grammar.getProductions());
     parsingTable.fill_parsing_table();
+
     map<shared_ptr<Token>, map<shared_ptr<Token>, vector<shared_ptr<Token>>>> table = parsingTable.table;
 
     cout << endl << endl << "Parsing TABLE:" << endl << endl;

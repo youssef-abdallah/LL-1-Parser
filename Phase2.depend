@@ -836,3 +836,216 @@
 1587556954 source:e:\handasa\3\compilers\project2\ll-1-parser\src\statemachine.cpp
 	"../include/StateMachine.h"
 
+1587575628 source:/home/karim/Desktop/CSED21/Phases 1 and 2/main.cpp
+	"includes.h"
+	"Token.h"
+	"Terminal.h"
+	"NonTerminal.h"
+	"Grammar.h"
+	"ReadFile.h"
+	"ParsingTable.h"
+	"Derivator.h"
+	"LexicalAnalyzer.h"
+
+1587570929 /home/karim/Desktop/CSED21/Phases 1 and 2/include/includes.h
+	<iostream>
+	<memory>
+	<vector>
+	<map>
+	<set>
+	<fstream>
+	<sstream>
+	<bits/stdc++.h>
+
+1587570929 /home/karim/Desktop/CSED21/Phases 1 and 2/include/Token.h
+	"includes.h"
+
+1587570929 /home/karim/Desktop/CSED21/Phases 1 and 2/include/Terminal.h
+	"Token.h"
+
+1587570929 /home/karim/Desktop/CSED21/Phases 1 and 2/include/NonTerminal.h
+	"Token.h"
+
+1587577043 /home/karim/Desktop/CSED21/Phases 1 and 2/include/Grammar.h
+	"includes.h"
+	"NonTerminal.h"
+	"Token.h"
+
+1587570929 /home/karim/Desktop/CSED21/Phases 1 and 2/include/ReadFile.h
+	"includes.h"
+	<iostream>
+	<fstream>
+	<string>
+	<regex>
+	"Terminal.h"
+	"NonTerminal.h"
+	"Token.h"
+	"Grammar.h"
+	"unordered_map"
+	<bits/stdc++.h>
+	"FactorNode.h"
+
+1587570929 /home/karim/Desktop/CSED21/Phases 1 and 2/include/FactorNode.h
+	"includes.h"
+	<string>
+
+1587570929 /home/karim/Desktop/CSED21/Phases 1 and 2/include/ParsingTable.h
+	"includes.h"
+	"NonTerminal.h"
+	"Token.h"
+
+1587570929 /home/karim/Desktop/CSED21/Phases 1 and 2/include/Derivator.h
+	"includes.h"
+	"NonTerminal.h"
+	"Terminal.h"
+	"Token.h"
+	<bits/stdc++.h>
+
+1587570929 /home/karim/Desktop/CSED21/Phases 1 and 2/include/LexicalAnalyzer.h
+	"includes.h"
+	"NFAState.h"
+	"LexicalAnalyzer.h"
+	"RegularExpression.h"
+	"NFABuilder.h"
+	"Scanner.h"
+	"DFABuilder.h"
+	"NFASimulator.h"
+	"DFASimulator.h"
+	"Minimize.h"
+	"MinimizeDFASimulation.h"
+	<regex>
+
+1587570929 /home/karim/Desktop/CSED21/Phases 1 and 2/include/NFAState.h
+	"includes.h"
+
+1587570929 /home/karim/Desktop/CSED21/Phases 1 and 2/include/RegularExpression.h
+	"includes.h"
+
+1587570929 /home/karim/Desktop/CSED21/Phases 1 and 2/include/NFABuilder.h
+	"includes.h"
+	"NFAState.h"
+	"StateMachine.h"
+
+1587570929 /home/karim/Desktop/CSED21/Phases 1 and 2/include/StateMachine.h
+	"includes.h"
+	"NFAState.h"
+
+1587570929 /home/karim/Desktop/CSED21/Phases 1 and 2/include/Scanner.h
+	"includes.h"
+	<map>
+	"RegularDefinition.h"
+	"RegularExpression.h"
+
+1587570929 /home/karim/Desktop/CSED21/Phases 1 and 2/include/RegularDefinition.h
+	"includes.h"
+
+1587570929 /home/karim/Desktop/CSED21/Phases 1 and 2/include/DFABuilder.h
+	"NFAState.h"
+	"StateMachine.h"
+	"includes.h"
+	"DFAState.h"
+
+1587570929 /home/karim/Desktop/CSED21/Phases 1 and 2/include/DFAState.h
+	"includes.h"
+	"NFAState.h"
+
+1587570929 /home/karim/Desktop/CSED21/Phases 1 and 2/include/NFASimulator.h
+	"StateMachine.h"
+
+1587570929 /home/karim/Desktop/CSED21/Phases 1 and 2/include/DFASimulator.h
+	"includes.h"
+	"DFAState.h"
+
+1587570929 /home/karim/Desktop/CSED21/Phases 1 and 2/include/Minimize.h
+	<includes.h>
+	<Node.h>
+	<ColorNode.h>
+	<algorithm>
+	<DFAState.h>
+
+1587570929 /home/karim/Desktop/CSED21/Phases 1 and 2/include/Node.h
+	<string>
+	<sstream>
+
+1587570929 /home/karim/Desktop/CSED21/Phases 1 and 2/include/ColorNode.h
+
+1587570929 /home/karim/Desktop/CSED21/Phases 1 and 2/include/MinimizeDFASimulation.h
+	<Minimize.h>
+
+1587570929 source:/home/karim/Desktop/CSED21/Phases 1 and 2/src/ColorNode.cpp
+	"ColorNode.h"
+
+1587570929 source:/home/karim/Desktop/CSED21/Phases 1 and 2/src/Derivator.cpp
+	"Derivator.h"
+	"ParsingTable.h"
+	"NonTerminal.h"
+	"Terminal.h"
+	"Token.h"
+
+1587570929 source:/home/karim/Desktop/CSED21/Phases 1 and 2/src/DFABuilder.cpp
+	"DFABuilder.h"
+
+1587570929 source:/home/karim/Desktop/CSED21/Phases 1 and 2/src/DFASimulator.cpp
+	"DFASimulator.h"
+
+1587570929 source:/home/karim/Desktop/CSED21/Phases 1 and 2/src/DFAState.cpp
+	"DFAState.h"
+
+1587570929 source:/home/karim/Desktop/CSED21/Phases 1 and 2/src/FactorNode.cpp
+	<FactorNode.h>
+
+1587578480 source:/home/karim/Desktop/CSED21/Phases 1 and 2/src/Grammar.cpp
+	"Grammar.h"
+
+1587570929 source:/home/karim/Desktop/CSED21/Phases 1 and 2/src/LexicalAnalyzer.cpp
+	"../include/LexicalAnalyzer.h"
+
+1587570929 source:/home/karim/Desktop/CSED21/Phases 1 and 2/src/Minimize.cpp
+	<Minimize.h>
+
+1587570929 source:/home/karim/Desktop/CSED21/Phases 1 and 2/src/MinimizeDFASimulation.cpp
+	<MinimizeDFASimulation.h>
+
+1587570929 source:/home/karim/Desktop/CSED21/Phases 1 and 2/src/NFABuilder.cpp
+	"../include/NFABuilder.h"
+
+1587570929 source:/home/karim/Desktop/CSED21/Phases 1 and 2/src/NFASimulator.cpp
+	"NFASimulator.h"
+
+1587570929 source:/home/karim/Desktop/CSED21/Phases 1 and 2/src/NFAState.cpp
+	"../include/NFAState.h"
+
+1587570929 source:/home/karim/Desktop/CSED21/Phases 1 and 2/src/Node.cpp
+	"Node.h"
+
+1587570929 source:/home/karim/Desktop/CSED21/Phases 1 and 2/src/NonTerminal.cpp
+	"NonTerminal.h"
+
+1587577665 source:/home/karim/Desktop/CSED21/Phases 1 and 2/src/ParsingTable.cpp
+	"ParsingTable.h"
+	"Grammar.h"
+	"NonTerminal.h"
+	"Terminal.h"
+	"Token.h"
+
+1587570929 source:/home/karim/Desktop/CSED21/Phases 1 and 2/src/RegularDefinition.cpp
+	"../include/RegularDefinition.h"
+
+1587570929 source:/home/karim/Desktop/CSED21/Phases 1 and 2/src/RegularExpression.cpp
+	"../include/RegularExpression.h"
+
+1587570929 source:/home/karim/Desktop/CSED21/Phases 1 and 2/src/Scanner.cpp
+	"../include/Scanner.h"
+
+1587570929 source:/home/karim/Desktop/CSED21/Phases 1 and 2/src/StateMachine.cpp
+	"../include/StateMachine.h"
+
+1587570929 source:/home/karim/Desktop/CSED21/Phases 1 and 2/src/Terminal.cpp
+	"Terminal.h"
+
+1587570929 source:/home/karim/Desktop/CSED21/Phases 1 and 2/src/Token.cpp
+	"Token.h"
+
+1587578589 source:/home/karim/Desktop/CSED21/Phases 1 and 2/src/ReadFile.cpp
+	<ReadFile.h>
+

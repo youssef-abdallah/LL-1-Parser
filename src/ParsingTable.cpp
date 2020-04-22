@@ -94,6 +94,7 @@ vector<shared_ptr<Token>> ParsingTable::add_terminal(shared_ptr<Token> NT, strin
         shared_ptr<Token> nonTerminal = production.first;
         if (nonTerminal->getType() != NT->getType()) continue;
         vector<shared_ptr<Token>> rule = production.second;
+        if (rule.size() == 0 ) continue;
         shared_ptr<Token> first_token = rule[0];
         //cout << endl << "terminal found = " << terminal << " with NT = " << NT->getType() << endl;
         if (rule[0]->getType() == terminal){
