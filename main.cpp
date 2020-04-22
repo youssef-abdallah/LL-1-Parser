@@ -141,6 +141,8 @@ int main()
         input.push_back(make_shared<Terminal>(stringInput[k]));
     }
 
+    shared_ptr<Terminal> dollar_sign = make_shared<Terminal>("$");
+    input.push_back(dollar_sign);
     Derivator derivator;
     derivator.setTable(table);
     derivator.setInput(input);

@@ -448,10 +448,12 @@ void Scanner::add_special_expression(bool highest_priority){
         tokens = punctuations;
         for (int i = 0; i < (int) tokens.size(); i++){
             string str = tokens[i];
-
+            if (str[0] == '\\'){
+                str.replace(0, 1, "");
+            }
             RegularExpression re;
             re.setExpressionType(str);
-            re.setExpression(str);
+            re.setExpression(tokens[i]);
             reg_expressions.push_back(re);
         }
     }
