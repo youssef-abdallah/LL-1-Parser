@@ -448,13 +448,10 @@ void Scanner::add_special_expression(bool highest_priority){
         tokens = punctuations;
         for (int i = 0; i < (int) tokens.size(); i++){
             string str = tokens[i];
-            if (str == "(")
-                str = "\\(";
-            else if (str == ")")
-                str = "\\)";
+
             RegularExpression re;
             re.setExpressionType(str);
-            re.setExpression(tokens[i]);
+            re.setExpression(str);
             reg_expressions.push_back(re);
         }
     }
