@@ -35,7 +35,7 @@
 1586633224 source:/home/youssef/Problem Solving/educational round 74 cF/Phase2/Phase2/src/Token.cpp
 	"Token.h"
 
-1587554764 source:/home/youssef/Problem Solving/educational round 74 cF/Phase2/Phase2/main.cpp
+1587595544 source:/home/youssef/Problem Solving/educational round 74 cF/Phase2/Phase2/main.cpp
 	"includes.h"
 	"Token.h"
 	"Terminal.h"
@@ -110,7 +110,7 @@
 1587558428 source:m:\projects\ll-1-parser\src\readfile.cpp
 	<ReadFile.h>
 
-1587552637 /home/youssef/Problem Solving/educational round 74 cF/Phase2/Phase2/include/ReadFile.h
+1587908946 /home/youssef/Problem Solving/educational round 74 cF/Phase2/Phase2/include/ReadFile.h
 	"includes.h"
 	<iostream>
 	<fstream>
@@ -262,7 +262,7 @@
 1587132885 source:/home/karim/Desktop/CSED21/compilers/NEW Rpo/src/Token.cpp
 	"Token.h"
 
-1587491890 source:/home/youssef/Problem Solving/educational round 74 cF/Phase2/Phase2/src/ParsingTable.cpp
+1587578946 source:/home/youssef/Problem Solving/educational round 74 cF/Phase2/Phase2/src/ParsingTable.cpp
 	"ParsingTable.h"
 	"Grammar.h"
 	"NonTerminal.h"
@@ -274,7 +274,7 @@
 	"NonTerminal.h"
 	"Token.h"
 
-1587552638 source:/home/youssef/Problem Solving/educational round 74 cF/Phase2/Phase2/src/ReadFile.cpp
+1587578946 source:/home/youssef/Problem Solving/educational round 74 cF/Phase2/Phase2/src/ReadFile.cpp
 	<ReadFile.h>
 
 1587170589 D
@@ -524,10 +524,10 @@
 1585327254 source:/home/youssef/Problem Solving/educational round 74 cF/Phase2/Phase2/src/DFAState.cpp
 	"DFAState.h"
 
-1587554908 source:/home/youssef/Problem Solving/educational round 74 cF/Phase2/Phase2/src/LexicalAnalyzer.cpp
+1587595525 source:/home/youssef/Problem Solving/educational round 74 cF/Phase2/Phase2/src/LexicalAnalyzer.cpp
 	"../include/LexicalAnalyzer.h"
 
-1585327253 /home/youssef/Problem Solving/educational round 74 cF/Phase2/Phase2/include/LexicalAnalyzer.h
+1587561212 /home/youssef/Problem Solving/educational round 74 cF/Phase2/Phase2/include/LexicalAnalyzer.h
 	"includes.h"
 	"NFAState.h"
 	"LexicalAnalyzer.h"
@@ -539,6 +539,7 @@
 	"DFASimulator.h"
 	"Minimize.h"
 	"MinimizeDFASimulation.h"
+	<regex>
 
 1585097527 /home/youssef/Problem Solving/educational round 74 cF/Phase2/Phase2/include/RegularExpression.h
 	"includes.h"
@@ -577,10 +578,10 @@
 1585327254 source:/home/youssef/Problem Solving/educational round 74 cF/Phase2/Phase2/src/Minimize.cpp
 	<Minimize.h>
 
-1585842587 source:/home/youssef/Problem Solving/educational round 74 cF/Phase2/Phase2/src/MinimizeDFASimulation.cpp
+1587561212 source:/home/youssef/Problem Solving/educational round 74 cF/Phase2/Phase2/src/MinimizeDFASimulation.cpp
 	<MinimizeDFASimulation.h>
 
-1585188061 source:/home/youssef/Problem Solving/educational round 74 cF/Phase2/Phase2/src/NFABuilder.cpp
+1587594110 source:/home/youssef/Problem Solving/educational round 74 cF/Phase2/Phase2/src/NFABuilder.cpp
 	"../include/NFABuilder.h"
 
 1585101392 source:/home/youssef/Problem Solving/educational round 74 cF/Phase2/Phase2/src/NFASimulator.cpp
@@ -595,10 +596,10 @@
 1584974940 source:/home/youssef/Problem Solving/educational round 74 cF/Phase2/Phase2/src/RegularDefinition.cpp
 	"../include/RegularDefinition.h"
 
-1585097527 source:/home/youssef/Problem Solving/educational round 74 cF/Phase2/Phase2/src/RegularExpression.cpp
+1587595525 source:/home/youssef/Problem Solving/educational round 74 cF/Phase2/Phase2/src/RegularExpression.cpp
 	"../include/RegularExpression.h"
 
-1587555450 source:/home/youssef/Problem Solving/educational round 74 cF/Phase2/Phase2/src/Scanner.cpp
+1587595544 source:/home/youssef/Problem Solving/educational round 74 cF/Phase2/Phase2/src/Scanner.cpp
 	"../include/Scanner.h"
 
 1585188061 source:/home/youssef/Problem Solving/educational round 74 cF/Phase2/Phase2/src/StateMachine.cpp

@@ -39,6 +39,8 @@ private:
 	void InsertNode(int ProductionNum1 , int ProductionNum2, vector<std::string> Common);
 	void AddLeftFactoring(vector<vector<FactorNode>> Elemination, vector<vector<std::string>> Productions, std::string NonTerminal);
 	vector<std::string> SubVector(unsigned Size, unsigned Limit, vector<std::string> test);
+	void eliminateLeftRecursion();
+	void eliminateImmediateLeftRecursion(unsigned int);
 public:
 	ReadFile();
 	~ReadFile();
@@ -46,7 +48,5 @@ public:
     shared_ptr<NonTerminal> GetFirstState();
 	vector<shared_ptr<Token>> GetTerminals();
 	vector<shared_ptr<NonTerminal>> GetNonTerminals();
-	void eliminateLeftRecursion();
-	void eliminateImmediateLeftRecursion(unsigned int);
 };
 #endif // READFILE_H_INCLUDED
