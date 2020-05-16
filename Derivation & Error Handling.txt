@@ -1,0 +1,12 @@
+The Derivator class takes the input and make left most left to right derivation.
+
+It holds a stack containing terminals and non terminals through every step of the derivation and according to the top of the stack and the current input token it uses the parsing table to continue the derivation such that:
+- If the top of stack is a terminal token it matches it with the current input.
+- If the top of stack is a non terminal it goes to the corresponding row in the parsing table and the corresponding collumn according to the current table and then it pops the current non terminal from the stack and push the prodution found from the table in the reverse order.
+- If the production found in the table is epsilon then we pop the non terminal  from the stack without pushing anything in it.
+- If the top of stack is '$' (which is the first element inserted in the stack) and the current input is also '$' (which is the last token in the input) it matches them and then parsing has been terminated successfully.
+
+Error Handling:
+- If the top of the stack is a terminal token but it doesn't match with the current input then we have an extra terminal in the stack and we pop it.
+- If the top of the stack is '$' and the input hasen't ended then parsing terminate without completing because the stack is empty and we have an error.
+- If the corresponding entry in the table is an empty cell then the error is that we have an excess token in the input and we get the next token and continue searching in the table according to the stack and the input until we reach a production or until reaching a synch entry then we pop the non terminal from the stack and continue derivation.

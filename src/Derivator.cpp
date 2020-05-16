@@ -18,12 +18,12 @@ Derivator::~Derivator()
 void Derivator::derive(){
     int it = 0; // input iterator
     shared_ptr<Token> dollarSign = make_shared<Terminal>("$");
-    st.push(dollarSign);
-    st.push(startingSymbol);
+    st.push_back(dollarSign);
+    st.push_back(startingSymbol);
     while(1){
-        cout << "Top of Stack: " << st.top()->getType();
+        cout << "Top of Stack: " << st.back()->getType();
         cout << "   Input: "<<input[it]->getType() << endl;
-        shared_ptr<Token> TOS = st.top();// top of stack
+        shared_ptr<Token> TOS = st.back();// top of stack
         int sizeOfInput = input.size()-1;
         if(it!=sizeOfInput && TOS->getType()=="$"){
             cout << "ERROR : Stack is empty & input isn't done!" << endl;
@@ -37,11 +37,11 @@ void Derivator::derive(){
             if(TOS->getType()==input[it]->getType()){
                 cout << " matched " << input[it]->getType()<<endl;
                 it++;
-                st.pop();
+                st.pop_back();
             }
             else{
                 cout<< "Error : matching terminals failed! Extra " << TOS->getType()<< " in stack"<<endl;
-                st.pop();
+                st.pop_back();
             }
         }
         else{ // if top of stack is non terminal
@@ -56,11 +56,11 @@ void Derivator::derive(){
             if(entry.size()==1){
                 if(entry[0]->getType()=="0"){
                     cout << NT->getType()<< " -> epsilon"<< endl;
-                    st.pop();
+                    st.pop_back();
                 }
                 else if(entry[0]->getType()=="synch"){ // MUST BE UPDATED TO HANDLE ERRORS
                     cout << NT->getType()<< " -> synch"<< endl;
-                    st.pop();
+                    st.pop_back();
                 }
                 else if(entry[0]->getType()=="ERROR"){// MUST BE UPDATED TO HANDLE ERRORS
                     cout << "ERROR : empty cell" << endl;
@@ -68,8 +68,8 @@ void Derivator::derive(){
                 }
                 else{
                     cout << NT->getType()<< " -> "<< entry[0]->getType() << endl;
-                    st.pop();
-                    st.push(entry[0]);
+                    st.pop_back();
+                    st.push_back(entry[0]);
                 }
             }
             else{
@@ -79,9 +79,9 @@ void Derivator::derive(){
                     cout <<entry[i]->getType()<< " ";
                 }
                 cout << endl;
-                st.pop();
+                st.pop_back();
                 for(int i=entry.size()-1; i>=0 ; i--){
-                    st.push(entry[i]);
+                    st.push_back(entry[i]);
                 }
             }
         }
