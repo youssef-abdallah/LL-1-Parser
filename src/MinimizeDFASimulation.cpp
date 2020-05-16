@@ -73,7 +73,7 @@ string MinimizeDFASimulation::simulate(string InputString) {
             return "Expected : " + LastToken;
         }
     } else{
-        return "There is not Any Accept State";
+        return "";
     }
 }
 
