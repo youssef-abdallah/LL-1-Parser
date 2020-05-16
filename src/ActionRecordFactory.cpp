@@ -20,4 +20,5 @@ shared_ptr<Token> ActionRecordFactory::create(const string &type) {
         };
         return make_shared<DerivedActionRecord>();
     }
+    return 0;
 }

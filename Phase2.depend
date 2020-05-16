@@ -274,7 +274,7 @@
 	"NonTerminal.h"
 	"Token.h"
 
-1587578946 source:/home/youssef/Problem Solving/educational round 74 cF/Phase2/Phase2/src/ReadFile.cpp
+1589642502 source:/home/youssef/Problem Solving/educational round 74 cF/Phase2/Phase2/src/ReadFile.cpp
 	<ReadFile.h>
 
 1587170589 D
@@ -432,14 +432,14 @@
 	"NonTerminal.h"
 	"Token.h"
 
-1587552638 source:/home/youssef/Problem Solving/educational round 74 cF/Phase2/Phase2/src/Derivator.cpp
+1589642211 source:/home/youssef/Problem Solving/educational round 74 cF/Phase2/Phase2/src/Derivator.cpp
 	"Derivator.h"
 	"ParsingTable.h"
 	"NonTerminal.h"
 	"Terminal.h"
 	"Token.h"
 
-1587491506 /home/youssef/Problem Solving/educational round 74 cF/Phase2/Phase2/include/Derivator.h
+1589642210 /home/youssef/Problem Solving/educational round 74 cF/Phase2/Phase2/include/Derivator.h
 	"includes.h"
 	"NonTerminal.h"
 	"Terminal.h"
@@ -525,7 +525,7 @@
 1585327254 source:/home/youssef/Problem Solving/educational round 74 cF/Phase2/Phase2/src/DFAState.cpp
 	"DFAState.h"
 
-1587595525 source:/home/youssef/Problem Solving/educational round 74 cF/Phase2/Phase2/src/LexicalAnalyzer.cpp
+1589642211 source:/home/youssef/Problem Solving/educational round 74 cF/Phase2/Phase2/src/LexicalAnalyzer.cpp
 	"../include/LexicalAnalyzer.h"
 
 1587561212 /home/youssef/Problem Solving/educational round 74 cF/Phase2/Phase2/include/LexicalAnalyzer.h
@@ -579,7 +579,7 @@
 1585327254 source:/home/youssef/Problem Solving/educational round 74 cF/Phase2/Phase2/src/Minimize.cpp
 	<Minimize.h>
 
-1587561212 source:/home/youssef/Problem Solving/educational round 74 cF/Phase2/Phase2/src/MinimizeDFASimulation.cpp
+1589641772 source:/home/youssef/Problem Solving/educational round 74 cF/Phase2/Phase2/src/MinimizeDFASimulation.cpp
 	<MinimizeDFASimulation.h>
 
 1587594110 source:/home/youssef/Problem Solving/educational round 74 cF/Phase2/Phase2/src/NFABuilder.cpp
@@ -1057,7 +1057,7 @@
 1589641093 /home/youssef/Problem Solving/educational round 74 cF/Phase2/Phase2/include/ActionRecord.h
 	<Token.h>
 
-1589640919 source:/home/youssef/Problem Solving/educational round 74 cF/Phase2/Phase2/src/ActionRecordFactory.cpp
+1589641567 source:/home/youssef/Problem Solving/educational round 74 cF/Phase2/Phase2/src/ActionRecordFactory.cpp
 	"ActionRecordFactory.h"
 
 1589640934 /home/youssef/Problem Solving/educational round 74 cF/Phase2/Phase2/include/ActionRecordFactory.h
