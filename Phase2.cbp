@@ -34,6 +34,8 @@
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
 		</Compiler>
+		<Unit filename="include/ActionRecord.h" />
+		<Unit filename="include/ActionRecordFactory.h" />
 		<Unit filename="include/ColorNode.h" />
 		<Unit filename="include/DFABuilder.h" />
 		<Unit filename="include/DFASimulator.h" />
@@ -61,6 +63,8 @@
 		<Unit filename="include/Token.h" />
 		<Unit filename="include/includes.h" />
 		<Unit filename="main.cpp" />
+		<Unit filename="src/ActionRecord.cpp" />
+		<Unit filename="src/ActionRecordFactory.cpp" />
 		<Unit filename="src/ColorNode.cpp" />
 		<Unit filename="src/DFABuilder.cpp" />
 		<Unit filename="src/DFASimulator.cpp" />

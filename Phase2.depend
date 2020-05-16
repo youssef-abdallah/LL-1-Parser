@@ -46,15 +46,15 @@
 	"Derivator.h"
 	"LexicalAnalyzer.h"
 
-1587515840 source:m:\projects\ll-1-parser\src\grammar.cpp
+1589651798 source:m:\projects\ll-1-parser\src\grammar.cpp
 	"Grammar.h"
 
-1587515840 m:\projects\ll-1-parser\include\grammar.h
+1589651797 m:\projects\ll-1-parser\include\grammar.h
 	"includes.h"
 	"NonTerminal.h"
 	"Token.h"
 
-1587557778 m:\projects\ll-1-parser\include\includes.h
+1589651797 m:\projects\ll-1-parser\include\includes.h
 	<iostream>
 	<memory>
 	<vector>
@@ -64,25 +64,25 @@
 	<sstream>
 	<bits/stdc++.h>
 
-1587515840 m:\projects\ll-1-parser\include\nonterminal.h
+1589651797 m:\projects\ll-1-parser\include\nonterminal.h
 	"Token.h"
 
-1587515840 m:\projects\ll-1-parser\include\token.h
+1589651797 m:\projects\ll-1-parser\include\token.h
 	"includes.h"
 
-1587515840 source:m:\projects\ll-1-parser\src\nonterminal.cpp
+1589651798 source:m:\projects\ll-1-parser\src\nonterminal.cpp
 	"NonTerminal.h"
 
-1587515840 source:m:\projects\ll-1-parser\src\terminal.cpp
+1589651798 source:m:\projects\ll-1-parser\src\terminal.cpp
 	"Terminal.h"
 
-1587515840 m:\projects\ll-1-parser\include\terminal.h
+1589651797 m:\projects\ll-1-parser\include\terminal.h
 	"Token.h"
 
-1587515840 source:m:\projects\ll-1-parser\src\token.cpp
+1589651798 source:m:\projects\ll-1-parser\src\token.cpp
 	"Token.h"
 
-1587557778 source:m:\projects\ll-1-parser\main.cpp
+1589651797 source:m:\projects\ll-1-parser\main.cpp
 	"includes.h"
 	"Token.h"
 	"Terminal.h"
@@ -93,7 +93,7 @@
 	"Derivator.h"
 	"LexicalAnalyzer.h"
 
-1587516430 m:\projects\ll-1-parser\include\readfile.h
+1589653537 m:\projects\ll-1-parser\include\readfile.h
 	"includes.h"
 	<iostream>
 	<fstream>
@@ -106,8 +106,9 @@
 	"unordered_map"
 	<bits/stdc++.h>
 	"FactorNode.h"
+	"ActionRecordFactory.h"
 
-1587558428 source:m:\projects\ll-1-parser\src\readfile.cpp
+1589651798 source:m:\projects\ll-1-parser\src\readfile.cpp
 	<ReadFile.h>
 
 1587908946 /home/youssef/Problem Solving/educational round 74 cF/Phase2/Phase2/include/ReadFile.h
@@ -314,7 +315,7 @@
 	"NonTerminal.h"
 	"Token.h"
 
-1587515840 m:\projects\ll-1-parser\include\parsingtable.h
+1589651797 m:\projects\ll-1-parser\include\parsingtable.h
 	"includes.h"
 	"NonTerminal.h"
 	"Token.h"
@@ -448,14 +449,14 @@
 
 1587491506 ++.h>
 
-1587517430 m:\projects\ll-1-parser\include\factornode.h
+1589651797 m:\projects\ll-1-parser\include\factornode.h
 	"includes.h"
 	<string>
 
-1587517384 source:m:\projects\ll-1-parser\src\factornode.cpp
+1589651798 source:m:\projects\ll-1-parser\src\factornode.cpp
 	<FactorNode.h>
 
-1587515840 source:m:\projects\ll-1-parser\src\parsingtable.cpp
+1589651798 source:m:\projects\ll-1-parser\src\parsingtable.cpp
 	"ParsingTable.h"
 	"Grammar.h"
 	"NonTerminal.h"
@@ -476,14 +477,14 @@
 1587556953 source:e:\handasa\3\compilers\project2\ll-1-parser\src\factornode.cpp
 	<FactorNode.h>
 
-1587515840 m:\projects\ll-1-parser\include\derivator.h
+1589651797 m:\projects\ll-1-parser\include\derivator.h
 	"includes.h"
 	"NonTerminal.h"
 	"Terminal.h"
 	"Token.h"
 	<bits/stdc++.h>
 
-1587515840 source:m:\projects\ll-1-parser\src\derivator.cpp
+1589651798 source:m:\projects\ll-1-parser\src\derivator.cpp
 	"Derivator.h"
 	"ParsingTable.h"
 	"NonTerminal.h"
@@ -606,7 +607,7 @@
 1585188061 source:/home/youssef/Problem Solving/educational round 74 cF/Phase2/Phase2/src/StateMachine.cpp
 	"../include/StateMachine.h"
 
-1587559443 m:\projects\ll-1-parser\include\lexicalanalyzer.h
+1589651797 m:\projects\ll-1-parser\include\lexicalanalyzer.h
 	"includes.h"
 	"NFAState.h"
 	"LexicalAnalyzer.h"
@@ -620,106 +621,106 @@
 	"MinimizeDFASimulation.h"
 	<regex>
 
-1587557778 m:\projects\ll-1-parser\include\nfastate.h
+1589651797 m:\projects\ll-1-parser\include\nfastate.h
 	"includes.h"
 
-1587557778 m:\projects\ll-1-parser\include\regularexpression.h
+1589651797 m:\projects\ll-1-parser\include\regularexpression.h
 	"includes.h"
 
-1587557778 m:\projects\ll-1-parser\include\nfabuilder.h
+1589651797 m:\projects\ll-1-parser\include\nfabuilder.h
 	"includes.h"
 	"NFAState.h"
 	"StateMachine.h"
 
-1587557778 m:\projects\ll-1-parser\include\statemachine.h
+1589651797 m:\projects\ll-1-parser\include\statemachine.h
 	"includes.h"
 	"NFAState.h"
 
-1587557778 m:\projects\ll-1-parser\include\scanner.h
+1589651797 m:\projects\ll-1-parser\include\scanner.h
 	"includes.h"
 	<map>
 	"RegularDefinition.h"
 	"RegularExpression.h"
 
-1587557778 m:\projects\ll-1-parser\include\regulardefinition.h
+1589651797 m:\projects\ll-1-parser\include\regulardefinition.h
 	"includes.h"
 
-1587557778 m:\projects\ll-1-parser\include\dfabuilder.h
+1589651797 m:\projects\ll-1-parser\include\dfabuilder.h
 	"NFAState.h"
 	"StateMachine.h"
 	"includes.h"
 	"DFAState.h"
 
-1587557778 m:\projects\ll-1-parser\include\dfastate.h
+1589651797 m:\projects\ll-1-parser\include\dfastate.h
 	"includes.h"
 	"NFAState.h"
 
-1587557778 m:\projects\ll-1-parser\include\nfasimulator.h
+1589651797 m:\projects\ll-1-parser\include\nfasimulator.h
 	"StateMachine.h"
 
-1587557778 m:\projects\ll-1-parser\include\dfasimulator.h
+1589651797 m:\projects\ll-1-parser\include\dfasimulator.h
 	"includes.h"
 	"DFAState.h"
 
-1587557778 m:\projects\ll-1-parser\include\minimize.h
+1589651797 m:\projects\ll-1-parser\include\minimize.h
 	<includes.h>
 	<Node.h>
 	<ColorNode.h>
 	<algorithm>
 	<DFAState.h>
 
-1587557778 m:\projects\ll-1-parser\include\node.h
+1589651797 m:\projects\ll-1-parser\include\node.h
 	<string>
 	<sstream>
 
-1587557778 m:\projects\ll-1-parser\include\colornode.h
+1589651797 m:\projects\ll-1-parser\include\colornode.h
 
-1587557778 m:\projects\ll-1-parser\include\minimizedfasimulation.h
+1589651797 m:\projects\ll-1-parser\include\minimizedfasimulation.h
 	<Minimize.h>
 
-1587557778 source:m:\projects\ll-1-parser\src\colornode.cpp
+1589651798 source:m:\projects\ll-1-parser\src\colornode.cpp
 	"ColorNode.h"
 
-1587557778 source:m:\projects\ll-1-parser\src\dfabuilder.cpp
+1589651798 source:m:\projects\ll-1-parser\src\dfabuilder.cpp
 	"DFABuilder.h"
 
-1587557778 source:m:\projects\ll-1-parser\src\dfasimulator.cpp
+1589651798 source:m:\projects\ll-1-parser\src\dfasimulator.cpp
 	"DFASimulator.h"
 
-1587557778 source:m:\projects\ll-1-parser\src\dfastate.cpp
+1589651798 source:m:\projects\ll-1-parser\src\dfastate.cpp
 	"DFAState.h"
 
-1587557778 source:m:\projects\ll-1-parser\src\minimize.cpp
+1589651798 source:m:\projects\ll-1-parser\src\minimize.cpp
 	<Minimize.h>
 
-1587559267 source:m:\projects\ll-1-parser\src\minimizedfasimulation.cpp
+1589651798 source:m:\projects\ll-1-parser\src\minimizedfasimulation.cpp
 	<MinimizeDFASimulation.h>
 
-1587557778 source:m:\projects\ll-1-parser\src\nfabuilder.cpp
+1589651798 source:m:\projects\ll-1-parser\src\nfabuilder.cpp
 	"../include/NFABuilder.h"
 
-1587557778 source:m:\projects\ll-1-parser\src\nfasimulator.cpp
+1589651798 source:m:\projects\ll-1-parser\src\nfasimulator.cpp
 	"NFASimulator.h"
 
-1587557778 source:m:\projects\ll-1-parser\src\nfastate.cpp
+1589651798 source:m:\projects\ll-1-parser\src\nfastate.cpp
 	"../include/NFAState.h"
 
-1587557778 source:m:\projects\ll-1-parser\src\node.cpp
+1589651798 source:m:\projects\ll-1-parser\src\node.cpp
 	"Node.h"
 
-1587557778 source:m:\projects\ll-1-parser\src\regulardefinition.cpp
+1589651798 source:m:\projects\ll-1-parser\src\regulardefinition.cpp
 	"../include/RegularDefinition.h"
 
-1587557778 source:m:\projects\ll-1-parser\src\regularexpression.cpp
+1589651798 source:m:\projects\ll-1-parser\src\regularexpression.cpp
 	"../include/RegularExpression.h"
 
-1587557778 source:m:\projects\ll-1-parser\src\scanner.cpp
+1589651798 source:m:\projects\ll-1-parser\src\scanner.cpp
 	"../include/Scanner.h"
 
-1587557778 source:m:\projects\ll-1-parser\src\statemachine.cpp
+1589651798 source:m:\projects\ll-1-parser\src\statemachine.cpp
 	"../include/StateMachine.h"
 
-1587557858 source:m:\projects\ll-1-parser\src\lexicalanalyzer.cpp
+1589651798 source:m:\projects\ll-1-parser\src\lexicalanalyzer.cpp
 	"../include/LexicalAnalyzer.h"
 
 1587556953 source:e:\handasa\3\compilers\project2\ll-1-parser\src\colornode.cpp
@@ -1064,4 +1065,18 @@
 	"includes.h"
 	"Token.h"
 	"ActionRecord.h"
+
+1589651797 m:\projects\ll-1-parser\include\actionrecordfactory.h
+	"includes.h"
+	"Token.h"
+	"ActionRecord.h"
+
+1589651797 m:\projects\ll-1-parser\include\actionrecord.h
+	<Token.h>
+
+1589651798 source:m:\projects\ll-1-parser\src\actionrecord.cpp
+	"ActionRecord.h"
+
+1589651798 source:m:\projects\ll-1-parser\src\actionrecordfactory.cpp
+	"ActionRecordFactory.h"
 

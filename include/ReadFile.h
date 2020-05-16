@@ -13,6 +13,7 @@
 #include "unordered_map"
 #include <bits/stdc++.h>
 #include "FactorNode.h"
+#include "ActionRecordFactory.h"
 
 bool CompareSize(FactorNode n1, FactorNode n2);
 
@@ -22,6 +23,7 @@ private:
     vector<vector<std::string>> GrammarFile;
     vector<vector<std::string>> LLGrammarFile;
     Grammar grammar;
+    ActionRecordFactory ARF;
     unordered_map<std::string, shared_ptr<Token>> Tokens;
     unordered_map<std::string, shared_ptr<NonTerminal>> Non_Terminals;
     unordered_map<int, bool> Used_Production;

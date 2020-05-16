@@ -92,6 +92,8 @@ void ReadFile::AddProductions(){
                     } else {
                         production.push_back(t->second);
                     }
+                } else if ((temp[j].find("\"")) != std::string::npos) {
+                    production.push_back(ARF.create(temp[j]));
                 } else {
                     // this terminal
                     auto t = Non_Terminals.find(temp[j]);
