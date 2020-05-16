@@ -35,7 +35,7 @@ class Derivator
     protected:
 
     private:
-        stack <shared_ptr<Token>> st;
+        vector <shared_ptr<Token>> st;
         vector <shared_ptr<Terminal>> input;
         map<shared_ptr<Token>, map<shared_ptr<Token>, vector<shared_ptr<Token>>>> table;
         vector<shared_ptr<Token>> Terminals;

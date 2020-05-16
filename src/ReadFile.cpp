@@ -4,7 +4,7 @@ ReadFile::ReadFile()
 {
     vector<std::string> Current_Production, Next_Production;
     string line;
-    ifstream myfile ("./test/Grammar.txt");
+    ifstream myfile ("./test/grammar.txt");
     if (myfile.is_open()){
         while ( getline (myfile,line) ){
             Next_Production = ExractStrings(line);

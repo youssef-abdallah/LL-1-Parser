@@ -279,7 +279,7 @@
 
 1587170589 D
 
-1587504542 source:e:\handasa\3\compilers\project2\ll-1-parser\main.cpp
+1587920156 source:e:\handasa\3\compilers\project2\ll-1-parser\main.cpp
 	"includes.h"
 	"Token.h"
 	"Terminal.h"
@@ -288,6 +288,7 @@
 	"ReadFile.h"
 	"ParsingTable.h"
 	"Derivator.h"
+	"LexicalAnalyzer.h"
 
 1587556953 e:\handasa\3\compilers\project2\ll-1-parser\include\includes.h
 	<iostream>
@@ -323,7 +324,7 @@
 	"NonTerminal.h"
 	"Token.h"
 
-1587556953 e:\handasa\3\compilers\project2\ll-1-parser\include\readfile.h
+1589637395 e:\handasa\3\compilers\project2\ll-1-parser\include\readfile.h
 	"includes.h"
 	<iostream>
 	<fstream>
@@ -348,7 +349,7 @@
 1586806331 source:e:\handasa\3\compilers\project2\ll-1-parser\src\nonterminal.cpp
 	"NonTerminal.h"
 
-1587504542 source:e:\handasa\3\compilers\project2\ll-1-parser\src\parsingtable.cpp
+1587920157 source:e:\handasa\3\compilers\project2\ll-1-parser\src\parsingtable.cpp
 	"ParsingTable.h"
 	"Grammar.h"
 	"NonTerminal.h"
@@ -361,21 +362,21 @@
 1586806331 source:e:\handasa\3\compilers\project2\ll-1-parser\src\token.cpp
 	"Token.h"
 
-1587504677 source:e:\handasa\3\compilers\project2\ll-1-parser\src\derivator.cpp
+1589641217 source:e:\handasa\3\compilers\project2\ll-1-parser\src\derivator.cpp
 	"Derivator.h"
 	"ParsingTable.h"
 	"NonTerminal.h"
 	"Terminal.h"
 	"Token.h"
 
-1587504542 e:\handasa\3\compilers\project2\ll-1-parser\include\derivator.h
+1589640646 e:\handasa\3\compilers\project2\ll-1-parser\include\derivator.h
 	"includes.h"
 	"NonTerminal.h"
 	"Terminal.h"
 	"Token.h"
 	<bits/stdc++.h>
 
-1587560526 source:e:\handasa\3\compilers\project2\ll-1-parser\src\readfile.cpp
+1587920157 source:e:\handasa\3\compilers\project2\ll-1-parser\src\readfile.cpp
 	<ReadFile.h>
 
 1587060843 source:/home/karim/Desktop/CSED21/Compiler_phase2/main.cpp
@@ -756,7 +757,7 @@
 1587556953 source:e:\handasa\3\compilers\project2\ll-1-parser\src\dfastate.cpp
 	"DFAState.h"
 
-1587560526 source:e:\handasa\3\compilers\project2\ll-1-parser\src\lexicalanalyzer.cpp
+1589641620 source:e:\handasa\3\compilers\project2\ll-1-parser\src\lexicalanalyzer.cpp
 	"../include/LexicalAnalyzer.h"
 
 1587560525 e:\handasa\3\compilers\project2\ll-1-parser\include\lexicalanalyzer.h
@@ -810,7 +811,7 @@
 1587556954 source:e:\handasa\3\compilers\project2\ll-1-parser\src\minimize.cpp
 	<Minimize.h>
 
-1587560526 source:e:\handasa\3\compilers\project2\ll-1-parser\src\minimizedfasimulation.cpp
+1589641655 source:e:\handasa\3\compilers\project2\ll-1-parser\src\minimizedfasimulation.cpp
 	<MinimizeDFASimulation.h>
 
 1587556954 source:e:\handasa\3\compilers\project2\ll-1-parser\src\nfabuilder.cpp
@@ -831,7 +832,7 @@
 1587556954 source:e:\handasa\3\compilers\project2\ll-1-parser\src\regularexpression.cpp
 	"../include/RegularExpression.h"
 
-1587556954 source:e:\handasa\3\compilers\project2\ll-1-parser\src\scanner.cpp
+1587920157 source:e:\handasa\3\compilers\project2\ll-1-parser\src\scanner.cpp
 	"../include/Scanner.h"
 
 1587556954 source:e:\handasa\3\compilers\project2\ll-1-parser\src\statemachine.cpp

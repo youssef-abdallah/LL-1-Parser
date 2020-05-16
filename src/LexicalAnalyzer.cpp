@@ -11,7 +11,7 @@ LexicalAnalyzer& LexicalAnalyzer::getInstance() {
 
 vector<std::string> LexicalAnalyzer::execute() {
     vector<std::string> Result;
-    Scanner::getInstance().read_lexical_rules("./test/lexical_rules.txt");
+    Scanner::getInstance().read_lexical_rules("./test/regularExpressions.txt");
     vector<RegularExpression> regularExpressions = Scanner::getInstance().reg_expressions;
     vector<StateMachine> stateMachines;
     for (RegularExpression regularExpression : regularExpressions) {
@@ -27,7 +27,7 @@ vector<std::string> LexicalAnalyzer::execute() {
     builder.buildDFA();
     Minimize minimize(builder.getInitialState(),builder.GetAllState(),builder.GetInputs(),builder.getReducedTable());
     NFASimulator simulator;
-    vector<string> results = Scanner::getInstance().process_input_program("./input_program.txt");
+    vector<string> results = Scanner::getInstance().process_input_program("./test/test1.txt");
     /*cout << simulator.simulate(combinedStateMachine, "123") << '\n';
     DFASimulator dfaSimulator;
     cout << dfaSimulator.simulate(builder.getInitialState(), "123") << '\n';
