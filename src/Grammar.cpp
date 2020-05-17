@@ -10,12 +10,20 @@ Grammar::~Grammar()
     //dtor
 }
 
+template<typename Base, typename T>
+inline bool instanceof(const T*) {
+    return std::is_base_of<Base, T>::value;
+}
+
 void Grammar::computeFirst() {
     for (auto &production : productions) {
         shared_ptr<Token> nonTerminal = production.first;
         first[nonTerminal];
         vector<shared_ptr<Token>> rule = production.second;
         for (auto &token : rule) {
+            if (token->getType() == "ACTION_RECORD") {
+                continue;
+            }
             if (productions.count(token) == 0) {
                 first[token].insert(token->getType());
             }
@@ -28,6 +36,7 @@ void Grammar::computeFirst() {
             vector<shared_ptr<Token>> rule = production.second;
             bool loop_broken = 0;
             for (shared_ptr<Token>& token : rule) {
+                if (token->getType() == "ACTION_RECORD") continue;
                 changes |= unify(nonTerminal, token);
                 if (!epsilonTokens.count(token)) {
                     loop_broken = 1;

@@ -4,6 +4,7 @@
 #include "NonTerminal.h"
 #include "Terminal.h"
 #include "Token.h"
+#include "ActionRecord.h"
 #include <bits/stdc++.h>
 
 
@@ -35,7 +36,7 @@ class Derivator
     protected:
 
     private:
-        vector <shared_ptr<Token>> st;
+        vector <shared_ptr<Token>> stk, aux_stk;
         vector <shared_ptr<Terminal>> input;
         map<shared_ptr<Token>, map<shared_ptr<Token>, vector<shared_ptr<Token>>>> table;
         vector<shared_ptr<Token>> Terminals;

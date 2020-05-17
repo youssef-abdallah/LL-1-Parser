@@ -17,11 +17,11 @@ class Token
         void setType(string _type) {
             type = _type;
         }
+        string attribute;
 
     protected:
-
-    private:
         string type;
+    private:
 };
 
 #endif // TOKEN_H

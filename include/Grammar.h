@@ -3,6 +3,8 @@
 #include "includes.h"
 #include "NonTerminal.h"
 #include "Token.h"
+#include "Terminal.h"
+#include "ActionRecord.h"
 
 class Grammar
 {

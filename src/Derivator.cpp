@@ -18,12 +18,18 @@ Derivator::~Derivator()
 void Derivator::derive(){
     int it = 0; // input iterator
     shared_ptr<Token> dollarSign = make_shared<Terminal>("$");
-    st.push_back(dollarSign);
-    st.push_back(startingSymbol);
+    stk.push_back(dollarSign);
+    stk.push_back(startingSymbol);
     while(1){
-        cout << "Top of Stack: " << st.back()->getType();
+        cout << "Top of Stack: " << stk.back()->getType();
         cout << "   Input: "<<input[it]->getType() << endl;
-        shared_ptr<Token> TOS = st.back();// top of stack
+        shared_ptr<Token> TOS = stk.back();// top of stack
+        if (TOS->getType() == "ACTION_RECORD") {
+            shared_ptr<ActionRecord> semantic_rule = static_pointer_cast<ActionRecord>(TOS);
+            semantic_rule->execute(stk, aux_stk);
+            stk.pop_back();
+            continue;
+        }
         int sizeOfInput = input.size()-1;
         if(it!=sizeOfInput && TOS->getType()=="$"){
             cout << "ERROR : Stack is empty & input isn't done!" << endl;
@@ -37,11 +43,12 @@ void Derivator::derive(){
             if(TOS->getType()==input[it]->getType()){
                 cout << " matched " << input[it]->getType()<<endl;
                 it++;
-                st.pop_back();
+                aux_stk.push_back(stk.back());
+                stk.pop_back();
             }
             else{
                 cout<< "Error : matching terminals failed! Extra " << TOS->getType()<< " in stack"<<endl;
-                st.pop_back();
+                stk.pop_back();
             }
         }
         else{ // if top of stack is non terminal
@@ -56,11 +63,13 @@ void Derivator::derive(){
             if(entry.size()==1){
                 if(entry[0]->getType()=="0"){
                     cout << NT->getType()<< " -> epsilon"<< endl;
-                    st.pop_back();
+                    aux_stk.push_back(stk.back());
+                    stk.pop_back();
                 }
                 else if(entry[0]->getType()=="synch"){ // MUST BE UPDATED TO HANDLE ERRORS
                     cout << NT->getType()<< " -> synch"<< endl;
-                    st.pop_back();
+                    aux_stk.push_back(stk.back());
+                    stk.pop_back();
                 }
                 else if(entry[0]->getType()=="ERROR"){// MUST BE UPDATED TO HANDLE ERRORS
                     cout << "ERROR : empty cell" << endl;
@@ -68,8 +77,9 @@ void Derivator::derive(){
                 }
                 else{
                     cout << NT->getType()<< " -> "<< entry[0]->getType() << endl;
-                    st.pop_back();
-                    st.push_back(entry[0]);
+                    aux_stk.push_back(stk.back());
+                    stk.pop_back();
+                    stk.push_back(entry[0]);
                 }
             }
             else{
@@ -79,9 +89,10 @@ void Derivator::derive(){
                     cout <<entry[i]->getType()<< " ";
                 }
                 cout << endl;
-                st.pop_back();
+                aux_stk.push_back(stk.back());
+                stk.pop_back();
                 for(int i=entry.size()-1; i>=0 ; i--){
-                    st.push_back(entry[i]);
+                    stk.push_back(entry[i]);
                 }
             }
         }

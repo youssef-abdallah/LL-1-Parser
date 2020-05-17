@@ -15,6 +15,7 @@ class ActionRecordFactory
     protected:
 
     private:
+        static void pop(vector<shared_ptr<Token>>&, int);
 };
 
 #endif // ACTIONRECORDFACTORY_H
