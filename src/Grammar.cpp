@@ -69,6 +69,7 @@ void Grammar::computeFollow() {
             set<string> followSoFar = follow[nonTerminal];
             vector<shared_ptr<Token>> rule = production.second;
             for (auto it = rule.rbegin(); it != rule.rend(); it++) {
+                if (it->get()->getType() == "ACTION_RECORD") continue;
                 if (productions.count(*it)) {
                     changes |= updateFollow(*it, followSoFar);
                 }

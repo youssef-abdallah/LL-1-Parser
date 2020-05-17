@@ -60,7 +60,6 @@ void ParsingTable::fill_parsing_table(){
                     entry.insert({T, v});
                 }
             }
-
             if (_first.find(T->getType()) != _first.end()){
                 vector<shared_ptr<Token>> v = add_terminal(NT, T->getType());
                 entry.insert({T, v});
