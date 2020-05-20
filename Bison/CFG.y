@@ -135,15 +135,13 @@ MORE_FACTORS:
 FACTOR:
     LEFT_BRACKET SIMPLE_EXPRESSION RIGHT_BRACKET
     | IDENTIFIER {
-        cout << $1 << endl;
         int idx = symTab[$1].varNum;
         enum dataType type = symTab[$1].type;
         if (type == INT_T) {
-            emit("iload " + idx);
+            emit("iload " + to_string(idx));
         } else {
-            emit("fload " + idx);
-        }
-        
+            emit("fload " + to_string(idx));
+        } 
     } 
     | INT
     {
