@@ -8,11 +8,14 @@
     void insertVar(string, enum dataType);
     void logError(string);
     void emit(string);
-    void backPatch(vector<int> *list, int label);
+    void backPatch(vector<int> *list, string *label);
     void printCode();
     string getOperation(string op);
+    void generateHeader();
+    void generateFooter();
 
     int varCnt = 1;
+    int labelCnt = 1;
     struct entry
     {
         enum dataType type;
@@ -36,7 +39,7 @@
 
 %code requires {
     #include "my_header.h"
-    #include <vector>
+    #include <bits/stdc++.h>
     using namespace std;
 }
 
@@ -45,6 +48,9 @@
     float fVal;
     char* idLexeme;
     enum dataType type;
+    struct{
+        string *label;
+    } labelName;
     struct {
         vector<int> *trueList, *falseList;
     } list_type;
@@ -73,14 +79,20 @@
 
 %type<list_type> EXPRESSION
 %type<type> PRIMITIVE_TYPE
-%type<iVal> MARKER
+%type<labelName> MARKER
 %type<iVal> GOTO
 
 
 %%
 
 METHOD_BODY:
+    {
+        generateHeader();
+    }
     STATEMENT MORE_STATEMENTS
+    {
+        generateFooter();
+    }
     ;
 MORE_STATEMENTS:
     STATEMENT MORE_STATEMENTS | 
@@ -122,8 +134,8 @@ IF:
     RIGHT_CURLY_BRACE ELSE_KEYWORD
     LEFT_CURLY_BRACE MARKER STATEMENT RIGHT_CURLY_BRACE MARKER
     {
-        backPatch($3.falseList, $11);
-        code[$7] = code[$7] + " " + to_string($14);
+        backPatch($3.falseList, $11.label);
+        code[$7] = code[$7] + " " + *($14.label);
         printCode();
     }
     ;
@@ -132,8 +144,8 @@ WHILE:
     EXPRESSION RIGHT_BRACKET
     LEFT_CURLY_BRACE STATEMENT GOTO RIGHT_CURLY_BRACE MARKER
     {
-        backPatch($4.falseList, $10);
-        code[$8] = code[$8] + " " + to_string($3);
+        backPatch($4.falseList, $10.label);
+        code[$8] = code[$8] + " " + *($3.label);
         printCode();
     }
     ;
@@ -168,16 +180,16 @@ SIMPLE_EXPRESSION:
     TERM MORE_TERMS
     ;
 MORE_TERMS:
-    ADD_OPERATOR {emit("iadd");} TERM MORE_TERMS
-    | SUB_OPERATOR {emit("isub");} TERM MORE_TERMS
+    ADD_OPERATOR TERM {emit("iadd");} MORE_TERMS
+    | SUB_OPERATOR TERM {emit("isub");} MORE_TERMS
     | 
     ;
 TERM:
     FACTOR MORE_FACTORS
     ;
 MORE_FACTORS:
-    MUL_OPERATOR {emit("imul");}  FACTOR MORE_FACTORS
-    | DIV_OPERATOR {emit("idiv");}  FACTOR MORE_FACTORS
+    MUL_OPERATOR FACTOR {emit("imul");} MORE_FACTORS
+    | DIV_OPERATOR FACTOR {emit("idiv");} MORE_FACTORS
     |
     ;
 FACTOR:
@@ -202,12 +214,15 @@ FACTOR:
     ;
 GOTO:
     {
-        $$ = InsCnt;
+        $$ = code.size();
         emit("goto");
     }
     ;
 MARKER:
-    { $$ = InsCnt; }
+    {   
+        $$.label = new string("Label" + to_string(labelCnt++));
+        emit(*$$.label + ": ");
+    }
     ;
 %%
 
@@ -232,10 +247,10 @@ void yyerror(char *s) {
     fprintf(stderr, "%s\n", s);
 }
 
-void backPatch(vector<int> *list, int label){
+void backPatch(vector<int> *list, string *label){
     if (list->size() > 0){
         for (int i = 0; i < list->size(); i++){
-            code[ (*list)[i] ] = code[ (*list)[i] ] + to_string(label);
+            code[ (*list)[i] ] = code[ (*list)[i] ] + (*label);
         }
     }
 }
@@ -248,10 +263,10 @@ void logError(string errorMsg) {
 }
 
 void emit(string codeLine) {
-    string str = to_string(InsCnt) + ": " + codeLine;
+    //string str = to_string(InsCnt) + ": " + codeLine;
     // cout << InsCnt << " :" << codeLine << endl;
-    code.push_back(str);
-    InsCnt++;
+    code.push_back(codeLine);
+    //InsCnt++;
 }
 
 void printCode(){
@@ -263,4 +278,30 @@ void printCode(){
 
 string getOperation(string op){
     return operations[op];
+}
+
+void generateHeader()
+{
+	emit(".source test.txt");
+	emit(".class public test\n.super java/lang/Object\n"); //code for defining class
+	emit(".method public <init>()V");
+	emit("aload_0");
+	emit("invokenonvirtual java/lang/Object/<init>()V");
+	emit("return");
+	emit(".end method\n");
+	emit(".method public static main([Ljava/lang/String;)V");
+	emit(".limit locals 100\n.limit stack 100");
+
+	/* generate temporal vars for syso*/
+	insertVar("1syso_int_var",INT_T);
+	insertVar("1syso_float_var",FLOAT_T);
+
+	/*generate line*/
+	emit(".line 1");
+}
+
+void generateFooter()
+{
+	emit("return");
+	emit(".end method");
 }

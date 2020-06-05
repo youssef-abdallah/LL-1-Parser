@@ -40,10 +40,10 @@
 extern int yydebug;
 #endif
 /* "%code requires" blocks.  */
-#line 37 "CFG.y" /* yacc.c:1909  */
+#line 40 "CFG.y" /* yacc.c:1909  */
 
     #include "my_header.h"
-    #include <vector>
+    #include <bits/stdc++.h>
     using namespace std;
 
 #line 50 "y.tab.h" /* yacc.c:1909  */
@@ -100,17 +100,20 @@ extern int yydebug;
 
 union YYSTYPE
 {
-#line 43 "CFG.y" /* yacc.c:1909  */
+#line 46 "CFG.y" /* yacc.c:1909  */
 
     int iVal;
     float fVal;
     char* idLexeme;
     enum dataType type;
+    struct{
+        string *label;
+    } labelName;
     struct {
         vector<int> *trueList, *falseList;
     } list_type;
 
-#line 114 "y.tab.h" /* yacc.c:1909  */
+#line 117 "y.tab.h" /* yacc.c:1909  */
 };
 
 typedef union YYSTYPE YYSTYPE;
