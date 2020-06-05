@@ -40,11 +40,13 @@
 extern int yydebug;
 #endif
 /* "%code requires" blocks.  */
-#line 24 "CFG.y" /* yacc.c:1909  */
+#line 37 "CFG.y" /* yacc.c:1909  */
 
     #include "my_header.h"
+    #include <vector>
+    using namespace std;
 
-#line 48 "y.tab.h" /* yacc.c:1909  */
+#line 50 "y.tab.h" /* yacc.c:1909  */
 
 /* Token type.  */
 #ifndef YYTOKENTYPE
@@ -62,14 +64,14 @@ extern int yydebug;
     LEFT_CURLY_BRACE = 266,
     RIGHT_CURLY_BRACE = 267,
     ASSIGNMENT_OPERATOR = 268,
-    RELATIONAL_OPERATOR = 269,
-    ADD_OPERATOR = 270,
-    SUB_OPERATOR = 271,
-    DIV_OPERATOR = 272,
-    MUL_OPERATOR = 273,
-    INT = 274,
-    FLOAT = 275,
-    IDENTIFIER = 276
+    ADD_OPERATOR = 269,
+    SUB_OPERATOR = 270,
+    DIV_OPERATOR = 271,
+    MUL_OPERATOR = 272,
+    INT = 273,
+    FLOAT = 274,
+    IDENTIFIER = 275,
+    RELATIONAL_OPERATOR = 276
   };
 #endif
 /* Tokens.  */
@@ -84,28 +86,31 @@ extern int yydebug;
 #define LEFT_CURLY_BRACE 266
 #define RIGHT_CURLY_BRACE 267
 #define ASSIGNMENT_OPERATOR 268
-#define RELATIONAL_OPERATOR 269
-#define ADD_OPERATOR 270
-#define SUB_OPERATOR 271
-#define DIV_OPERATOR 272
-#define MUL_OPERATOR 273
-#define INT 274
-#define FLOAT 275
-#define IDENTIFIER 276
+#define ADD_OPERATOR 269
+#define SUB_OPERATOR 270
+#define DIV_OPERATOR 271
+#define MUL_OPERATOR 272
+#define INT 273
+#define FLOAT 274
+#define IDENTIFIER 275
+#define RELATIONAL_OPERATOR 276
 
 /* Value type.  */
 #if ! defined YYSTYPE && ! defined YYSTYPE_IS_DECLARED
 
 union YYSTYPE
 {
-#line 28 "CFG.y" /* yacc.c:1909  */
+#line 43 "CFG.y" /* yacc.c:1909  */
 
     int iVal;
     float fVal;
     char* idLexeme;
     enum dataType type;
+    struct {
+        vector<int> *trueList, *falseList;
+    } list_type;
 
-#line 109 "y.tab.h" /* yacc.c:1909  */
+#line 114 "y.tab.h" /* yacc.c:1909  */
 };
 
 typedef union YYSTYPE YYSTYPE;

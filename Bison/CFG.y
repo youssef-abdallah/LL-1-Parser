@@ -1,12 +1,16 @@
 %{
     #include <bits/stdc++.h>
     #include "my_header.h"
+    
     using namespace std;
     int yylex();
     void yyerror (char *s);
     void insertVar(string, enum dataType);
     void logError(string);
     void emit(string);
+    void backPatch(vector<int> *list, int label);
+    void printCode();
+    string getOperation(string op);
 
     int varCnt = 1;
     struct entry
@@ -15,7 +19,16 @@
         int varNum;
     };
     map<string, entry> symTab;
+    map<string, string> operations = {
+        {"==", "if_icmpne"},
+        {"<=", "if_icmpgt"},
+        {">=", "if_icmplt"},
+        {"!=", "if_icmpeq"},
+        {">", "if_icmple"},
+        {"<", "if_icmpge"},
+    };
     vector<string> code;
+    int InsCnt = 0;
 %}
 
 
@@ -23,6 +36,8 @@
 
 %code requires {
     #include "my_header.h"
+    #include <vector>
+    using namespace std;
 }
 
 %union {
@@ -30,6 +45,9 @@
     float fVal;
     char* idLexeme;
     enum dataType type;
+    struct {
+        vector<int> *trueList, *falseList;
+    } list_type;
 }
 
 %token IF_KEYWORD
@@ -43,7 +61,6 @@
 %token LEFT_CURLY_BRACE
 %token RIGHT_CURLY_BRACE
 %token ASSIGNMENT_OPERATOR
-%token RELATIONAL_OPERATOR
 %token ADD_OPERATOR
 %token SUB_OPERATOR
 %token DIV_OPERATOR
@@ -52,8 +69,12 @@
 %token<iVal> INT
 %token<fVal> FLOAT
 %token <idLexeme> IDENTIFIER
+%token<idLexeme> RELATIONAL_OPERATOR
 
+%type<list_type> EXPRESSION
 %type<type> PRIMITIVE_TYPE
+%type<iVal> MARKER
+%type<iVal> GOTO
 
 
 %%
@@ -71,7 +92,19 @@ STATEMENT:
     | ASSIGNMENT
     ;
 DECLARATION:
-    PRIMITIVE_TYPE IDENTIFIER SEMI_COLON
+    PRIMITIVE_TYPE IDENTIFIER ASSIGNMENT_OPERATOR EXPRESSION SEMI_COLON
+    {
+        enum dataType type = $1;
+        string lexeme = $2;
+        insertVar(lexeme, type);
+        int idx = symTab[lexeme].varNum;
+        if (type == INT_T) {
+            emit("istore " + to_string(idx));
+        } else {
+            emit("fstore " + to_string(idx));
+        }
+    }
+    | PRIMITIVE_TYPE IDENTIFIER SEMI_COLON
     {
         enum dataType type = $1;
         string lexeme = $2;
@@ -85,14 +118,24 @@ PRIMITIVE_TYPE:
 IF:
     IF_KEYWORD LEFT_BRACKET
     EXPRESSION RIGHT_BRACKET
-    LEFT_CURLY_BRACE STATEMENT
+    LEFT_CURLY_BRACE STATEMENT GOTO
     RIGHT_CURLY_BRACE ELSE_KEYWORD
-    LEFT_CURLY_BRACE STATEMENT RIGHT_CURLY_BRACE
+    LEFT_CURLY_BRACE MARKER STATEMENT RIGHT_CURLY_BRACE MARKER
+    {
+        backPatch($3.falseList, $11);
+        code[$7] = code[$7] + " " + to_string($14);
+        printCode();
+    }
     ;
 WHILE:
-    WHILE_KEYWORD LEFT_BRACKET
+    WHILE_KEYWORD LEFT_BRACKET MARKER
     EXPRESSION RIGHT_BRACKET
-    LEFT_CURLY_BRACE STATEMENT RIGHT_CURLY_BRACE
+    LEFT_CURLY_BRACE STATEMENT GOTO RIGHT_CURLY_BRACE MARKER
+    {
+        backPatch($4.falseList, $10);
+        code[$8] = code[$8] + " " + to_string($3);
+        printCode();
+    }
     ;
 ASSIGNMENT:
     IDENTIFIER ASSIGNMENT_OPERATOR
@@ -115,6 +158,11 @@ ASSIGNMENT:
 EXPRESSION:
     SIMPLE_EXPRESSION
     | SIMPLE_EXPRESSION RELATIONAL_OPERATOR SIMPLE_EXPRESSION
+    {
+        $$.falseList = new vector<int>();
+        $$.falseList->push_back(code.size());
+        emit(getOperation($2) + " ");
+    }
     ;
 SIMPLE_EXPRESSION:
     TERM MORE_TERMS
@@ -152,7 +200,15 @@ FACTOR:
         emit("ldc " + to_string($1));
     }
     ;
-    
+GOTO:
+    {
+        $$ = InsCnt;
+        emit("goto");
+    }
+    ;
+MARKER:
+    { $$ = InsCnt; }
+    ;
 %%
 
 void insertVar(string lexeme, enum dataType type) {
@@ -168,11 +224,20 @@ void insertVar(string lexeme, enum dataType type) {
 }
 
 int main(void) {
+    
     return yyparse();
 }
 
 void yyerror(char *s) {
     fprintf(stderr, "%s\n", s);
+}
+
+void backPatch(vector<int> *list, int label){
+    if (list->size() > 0){
+        for (int i = 0; i < list->size(); i++){
+            code[ (*list)[i] ] = code[ (*list)[i] ] + to_string(label);
+        }
+    }
 }
 
 void logError(string errorMsg) {
@@ -183,6 +248,19 @@ void logError(string errorMsg) {
 }
 
 void emit(string codeLine) {
-    cout << codeLine << endl;
-    code.push_back(codeLine);
+    string str = to_string(InsCnt) + ": " + codeLine;
+    // cout << InsCnt << " :" << codeLine << endl;
+    code.push_back(str);
+    InsCnt++;
+}
+
+void printCode(){
+    cout << '\n';
+    for (int i = 0; i < code.size(); i++){
+        cout << code[i] << '\n';
+    }
+}
+
+string getOperation(string op){
+    return operations[op];
 }

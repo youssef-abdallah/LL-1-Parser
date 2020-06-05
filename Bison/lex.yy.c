@@ -795,7 +795,7 @@ YY_RULE_SETUP
 case 9:
 YY_RULE_SETUP
 #line 21 "lex.l"
-{return RELATIONAL_OPERATOR;}
+{yylval.idLexeme = strdup(yytext); return RELATIONAL_OPERATOR;}
 	YY_BREAK
 case 10:
 YY_RULE_SETUP

@@ -18,7 +18,7 @@ relop "=="|"!="|">"|">="|"<"|"<="
 {int} {yylval.iVal = atoi(yytext); return INT;}
 {float} {yylval.fVal = atof(yytext); return FLOAT;}
 {id} {yylval.idLexeme = strdup(yytext); return IDENTIFIER;}
-{relop} {return RELATIONAL_OPERATOR;}
+{relop} {yylval.idLexeme = strdup(yytext); return RELATIONAL_OPERATOR;}
 "{" {return LEFT_CURLY_BRACE;}
 "}" {return RIGHT_CURLY_BRACE;}
 "(" {return LEFT_BRACKET;}
