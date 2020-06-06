@@ -1,8 +1,17 @@
 int x;
+x = 9;
+float y;
+y = 1.2;
 if (x > 5) {
-while (x < 10) {
-x = x + 1;
-}
+    if (x > 10) {
+        while(x > 10) {
+            x = x - 1;
+        }
+    } else {
+        x = 10;
+    }
 } else {
-x = 10;
+    x = 5;
 }
+
+x = x + 1;

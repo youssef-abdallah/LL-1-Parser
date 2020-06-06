@@ -233,7 +233,7 @@ GOTO:
 MARKER:
     {   
         $$.label = new string("Label" + to_string(labelCnt++));
-        emit(*$$.label + ": ");
+        emit(*$$.label + ":");
     }
     ;
 %%
@@ -270,6 +270,8 @@ void backPatch(vector<int> *list, string *label) {
         for (int i = 0; i < list->size(); i++){
             code[(*list)[i]] = code[(*list)[i]] + (*label);
         }
+    } else {
+        remove(code.begin(), code.end(), (*label) + ":");
     }
 }
 

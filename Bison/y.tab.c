@@ -1553,7 +1553,7 @@ yyreduce:
 #line 234 "CFG.y" /* yacc.c:1646  */
     {   
         (yyval.labelName).label = new string("Label" + to_string(labelCnt++));
-        emit(*(yyval.labelName).label + ": ");
+        emit(*(yyval.labelName).label + ":");
     }
 #line 1559 "y.tab.c" /* yacc.c:1646  */
     break;
@@ -1822,6 +1822,8 @@ void backPatch(vector<int> *list, string *label) {
         for (int i = 0; i < list->size(); i++){
             code[(*list)[i]] = code[(*list)[i]] + (*label);
         }
+    } else {
+        remove(code.begin(), code.end(), (*label) + ":");
     }
 }
 
