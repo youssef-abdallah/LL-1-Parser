@@ -321,6 +321,6 @@ void generateHeader() {
 }
 
 void generateFooter() {
-	emit("return");
-	emit(".end method");
+    emit("return");
+    emit(".end method");
 }
