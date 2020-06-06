@@ -153,10 +153,11 @@ IF:
 WHILE:
     WHILE_KEYWORD LEFT_BRACKET MARKER
     EXPRESSION RIGHT_BRACKET
-    LEFT_CURLY_BRACE STATEMENT GOTO RIGHT_CURLY_BRACE MARKER
+    LEFT_CURLY_BRACE STATEMENT GOTO RIGHT_CURLY_BRACE
     {
-        backPatch($4.falseList, $10.label);
+        //backPatch($4.falseList, $10.label);
         backPatch($8.nextList, $3.label);
+        $$.nextList = $4.falseList;
     }
     ;
 ASSIGNMENT:
@@ -265,9 +266,9 @@ void yyerror(char *s) {
 }
 
 void backPatch(vector<int> *list, string *label) {
-    if (list->size() > 0){
+    if (list->size()){
         for (int i = 0; i < list->size(); i++){
-            code[ (*list)[i] ] = code[ (*list)[i] ] + (*label);
+            code[(*list)[i]] = code[(*list)[i]] + (*label);
         }
     }
 }
