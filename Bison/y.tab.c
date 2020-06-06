@@ -78,6 +78,8 @@
     string getOperation(string op);
     void generateHeader();
     void generateFooter();
+    extern FILE *yyin;
+    ofstream out("myFile.j");
 
     int varCnt = 1;
     int labelCnt = 1;
@@ -98,7 +100,7 @@
     vector<string> code;
     int InsCnt = 0;
 
-#line 102 "y.tab.c" /* yacc.c:339  */
+#line 104 "y.tab.c" /* yacc.c:339  */
 
 # ifndef YY_NULLPTR
 #  if defined __cplusplus && 201103L <= __cplusplus
@@ -128,13 +130,13 @@
 extern int yydebug;
 #endif
 /* "%code requires" blocks.  */
-#line 40 "CFG.y" /* yacc.c:355  */
+#line 42 "CFG.y" /* yacc.c:355  */
 
     #include "my_header.h"
     #include <bits/stdc++.h>
     using namespace std;
 
-#line 138 "y.tab.c" /* yacc.c:355  */
+#line 140 "y.tab.c" /* yacc.c:355  */
 
 /* Token type.  */
 #ifndef YYTOKENTYPE
@@ -188,7 +190,7 @@ extern int yydebug;
 
 union YYSTYPE
 {
-#line 46 "CFG.y" /* yacc.c:355  */
+#line 48 "CFG.y" /* yacc.c:355  */
 
     int iVal;
     float fVal;
@@ -201,7 +203,7 @@ union YYSTYPE
         vector<int> *trueList, *falseList;
     } list_type;
 
-#line 205 "y.tab.c" /* yacc.c:355  */
+#line 207 "y.tab.c" /* yacc.c:355  */
 };
 
 typedef union YYSTYPE YYSTYPE;
@@ -218,7 +220,7 @@ int yyparse (void);
 
 /* Copy the second part of user declarations.  */
 
-#line 222 "y.tab.c" /* yacc.c:358  */
+#line 224 "y.tab.c" /* yacc.c:358  */
 
 #ifdef short
 # undef short
@@ -517,8 +519,8 @@ static const yytype_uint8 yytranslate[] =
   /* YYRLINE[YYN] -- Source line where rule number YYN was defined.  */
 static const yytype_uint8 yyrline[] =
 {
-       0,    89,    89,    89,    98,    98,   101,   102,   103,   104,
-     107,   119,   127,   128,   131,   143,   153,   171,   172,   180,
+       0,    91,    91,    91,   100,   100,   103,   104,   105,   106,
+     109,   121,   129,   130,   133,   144,   153,   171,   172,   180,
      183,   183,   184,   184,   185,   188,   191,   191,   192,   192,
      193,   196,   197,   206,   210,   216,   222
 };
@@ -1340,23 +1342,23 @@ yyreduce:
   switch (yyn)
     {
         case 2:
-#line 89 "CFG.y" /* yacc.c:1646  */
+#line 91 "CFG.y" /* yacc.c:1646  */
     {
         generateHeader();
     }
-#line 1348 "y.tab.c" /* yacc.c:1646  */
+#line 1350 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 3:
-#line 93 "CFG.y" /* yacc.c:1646  */
+#line 95 "CFG.y" /* yacc.c:1646  */
     {
         generateFooter();
     }
-#line 1356 "y.tab.c" /* yacc.c:1646  */
+#line 1358 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 10:
-#line 108 "CFG.y" /* yacc.c:1646  */
+#line 110 "CFG.y" /* yacc.c:1646  */
     {
         enum dataType type = (yyvsp[-4].type);
         string lexeme = (yyvsp[-3].idLexeme);
@@ -1368,47 +1370,45 @@ yyreduce:
             emit("fstore " + to_string(idx));
         }
     }
-#line 1372 "y.tab.c" /* yacc.c:1646  */
+#line 1374 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 11:
-#line 120 "CFG.y" /* yacc.c:1646  */
+#line 122 "CFG.y" /* yacc.c:1646  */
     {
         enum dataType type = (yyvsp[-2].type);
         string lexeme = (yyvsp[-1].idLexeme);
         insertVar(lexeme, type);
     }
-#line 1382 "y.tab.c" /* yacc.c:1646  */
+#line 1384 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 12:
-#line 127 "CFG.y" /* yacc.c:1646  */
+#line 129 "CFG.y" /* yacc.c:1646  */
     {(yyval.type) = INT_T;}
-#line 1388 "y.tab.c" /* yacc.c:1646  */
+#line 1390 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 13:
-#line 128 "CFG.y" /* yacc.c:1646  */
+#line 130 "CFG.y" /* yacc.c:1646  */
     {(yyval.type) = FLOAT_T;}
-#line 1394 "y.tab.c" /* yacc.c:1646  */
+#line 1396 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 14:
-#line 136 "CFG.y" /* yacc.c:1646  */
+#line 138 "CFG.y" /* yacc.c:1646  */
     {
         backPatch((yyvsp[-11].list_type).falseList, (yyvsp[-3].labelName).label);
         code[(yyvsp[-7].iVal)] = code[(yyvsp[-7].iVal)] + " " + *((yyvsp[0].labelName).label);
-        printCode();
     }
-#line 1404 "y.tab.c" /* yacc.c:1646  */
+#line 1405 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 15:
-#line 146 "CFG.y" /* yacc.c:1646  */
+#line 147 "CFG.y" /* yacc.c:1646  */
     {
         backPatch((yyvsp[-6].list_type).falseList, (yyvsp[0].labelName).label);
         code[(yyvsp[-2].iVal)] = code[(yyvsp[-2].iVal)] + " " + *((yyvsp[-7].labelName).label);
-        printCode();
     }
 #line 1414 "y.tab.c" /* yacc.c:1646  */
     break;
@@ -1759,8 +1759,14 @@ void insertVar(string lexeme, enum dataType type) {
 }
 
 int main(void) {
-    
-    return yyparse();
+    FILE *file = fopen("input_program.txt", "r");
+    if (!file) {
+        cout << "Cannot open input file!";
+    }
+    yyin = file;
+    yyparse();
+    printCode();
+    return 0;
 }
 
 void yyerror(char *s) {
@@ -1791,8 +1797,8 @@ void emit(string codeLine) {
 
 void printCode(){
     cout << '\n';
-    for (int i = 0; i < code.size(); i++){
-        cout << code[i] << '\n';
+    for (string &line : code){
+        out << line << '\n';
     }
 }
 
@@ -1800,28 +1806,20 @@ string getOperation(string op){
     return operations[op];
 }
 
-void generateHeader()
-{
-	emit(".source test.txt");
-	emit(".class public test\n.super java/lang/Object\n"); //code for defining class
+void generateHeader() {
+	emit(".class public test");
+    emit(".super java/lang/Object");
 	emit(".method public <init>()V");
 	emit("aload_0");
 	emit("invokenonvirtual java/lang/Object/<init>()V");
 	emit("return");
 	emit(".end method\n");
 	emit(".method public static main([Ljava/lang/String;)V");
-	emit(".limit locals 100\n.limit stack 100");
-
-	/* generate temporal vars for syso*/
-	insertVar("1syso_int_var",INT_T);
-	insertVar("1syso_float_var",FLOAT_T);
-
-	/*generate line*/
-	emit(".line 1");
+	emit(".limit locals 100");
+    emit(".limit stack 50");
 }
 
-void generateFooter()
-{
+void generateFooter() {
 	emit("return");
 	emit(".end method");
 }

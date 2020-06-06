@@ -40,7 +40,7 @@
 extern int yydebug;
 #endif
 /* "%code requires" blocks.  */
-#line 40 "CFG.y" /* yacc.c:1909  */
+#line 42 "CFG.y" /* yacc.c:1909  */
 
     #include "my_header.h"
     #include <bits/stdc++.h>
@@ -100,7 +100,7 @@ extern int yydebug;
 
 union YYSTYPE
 {
-#line 46 "CFG.y" /* yacc.c:1909  */
+#line 48 "CFG.y" /* yacc.c:1909  */
 
     int iVal;
     float fVal;

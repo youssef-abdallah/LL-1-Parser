@@ -13,6 +13,8 @@
     string getOperation(string op);
     void generateHeader();
     void generateFooter();
+    extern FILE *yyin;
+    ofstream out("myFile.j");
 
     int varCnt = 1;
     int labelCnt = 1;
@@ -136,7 +138,6 @@ IF:
     {
         backPatch($3.falseList, $11.label);
         code[$7] = code[$7] + " " + *($14.label);
-        printCode();
     }
     ;
 WHILE:
@@ -146,7 +147,6 @@ WHILE:
     {
         backPatch($4.falseList, $10.label);
         code[$8] = code[$8] + " " + *($3.label);
-        printCode();
     }
     ;
 ASSIGNMENT:
@@ -239,8 +239,14 @@ void insertVar(string lexeme, enum dataType type) {
 }
 
 int main(void) {
-    
-    return yyparse();
+    FILE *file = fopen("input_program.txt", "r");
+    if (!file) {
+        cout << "Cannot open input file!";
+    }
+    yyin = file;
+    yyparse();
+    printCode();
+    return 0;
 }
 
 void yyerror(char *s) {
@@ -271,8 +277,8 @@ void emit(string codeLine) {
 
 void printCode(){
     cout << '\n';
-    for (int i = 0; i < code.size(); i++){
-        cout << code[i] << '\n';
+    for (string &line : code){
+        out << line << '\n';
     }
 }
 
@@ -280,28 +286,20 @@ string getOperation(string op){
     return operations[op];
 }
 
-void generateHeader()
-{
-	emit(".source test.txt");
-	emit(".class public test\n.super java/lang/Object\n"); //code for defining class
+void generateHeader() {
+	emit(".class public test");
+    emit(".super java/lang/Object");
 	emit(".method public <init>()V");
 	emit("aload_0");
 	emit("invokenonvirtual java/lang/Object/<init>()V");
 	emit("return");
 	emit(".end method\n");
 	emit(".method public static main([Ljava/lang/String;)V");
-	emit(".limit locals 100\n.limit stack 100");
-
-	/* generate temporal vars for syso*/
-	insertVar("1syso_int_var",INT_T);
-	insertVar("1syso_float_var",FLOAT_T);
-
-	/*generate line*/
-	emit(".line 1");
+	emit(".limit locals 100");
+    emit(".limit stack 50");
 }
 
-void generateFooter()
-{
+void generateFooter() {
 	emit("return");
 	emit(".end method");
 }
