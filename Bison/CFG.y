@@ -308,15 +308,15 @@ string getOperation(string op){
 }
 
 void generateHeader() {
-	emit(".class public test");
+    emit(".class public test");
     emit(".super java/lang/Object");
-	emit(".method public <init>()V");
-	emit("aload_0");
-	emit("invokenonvirtual java/lang/Object/<init>()V");
-	emit("return");
-	emit(".end method\n");
-	emit(".method public static main([Ljava/lang/String;)V");
-	emit(".limit locals 100");
+    emit(".method public <init>()V");
+    emit("aload_0");
+    emit("invokenonvirtual java/lang/Object/<init>()V");
+    emit("return");
+    emit(".end method\n");
+    emit(".method public static main([Ljava/lang/String;)V");
+    emit(".limit locals 100");
     emit(".limit stack 50");
 }
 
