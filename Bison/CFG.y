@@ -284,8 +284,8 @@ vector<int>* merge(vector<int> *list1, vector<int> *list2) {
 
 void logError(string errorMsg) {
     char cstr[errorMsg.size() + 1];
-	errorMsg.copy(cstr, errorMsg.size() + 1);
-	cstr[errorMsg.size()] = '\0';
+    errorMsg.copy(cstr, errorMsg.size() + 1);
+    cstr[errorMsg.size()] = '\0';
     yyerror(cstr);
 }
 
