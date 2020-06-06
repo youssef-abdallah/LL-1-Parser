@@ -101,16 +101,22 @@ METHOD_BODY:
     }
     ;
 MORE_STATEMENTS:
-    STATEMENT MARKER MORE_STATEMENTS { 
-        $$.nextList = $3.nextList;
-        backPatch($1.nextList, $2.label);
+    STATEMENT MORE_STATEMENTS { 
+        $$.nextList = $2.nextList;
+        
         }
     | {$$.nextList = new vector<int> (); }
     ;
 STATEMENT:
     DECLARATION {$$.nextList = new vector<int> (); }
-    | IF { $$.nextList = $1.nextList; }
-    | WHILE { $$.nextList = $1.nextList; }
+    | IF MARKER { 
+        backPatch($1.nextList, $2.label);
+        $$.nextList = $1.nextList;
+    }
+    | WHILE MARKER {
+        backPatch($1.nextList, $2.label);
+         $$.nextList = $1.nextList;
+    }
     | ASSIGNMENT { $$.nextList = new vector<int> (); }
     ;
 DECLARATION:
@@ -267,7 +273,8 @@ void yyerror(char *s) {
 
 void backPatch(vector<int> *list, string *label) {
     if (list->size()){
-        for (int i = 0; i < list->size(); i++){
+        for (int i = 0; i < list->size(); i++) {
+            if (code[(*list)[i]].find("Label") != string::npos) continue;
             code[(*list)[i]] = code[(*list)[i]] + (*label);
         }
     } else {
