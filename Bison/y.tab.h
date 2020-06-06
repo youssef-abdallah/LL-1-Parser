@@ -40,7 +40,7 @@
 extern int yydebug;
 #endif
 /* "%code requires" blocks.  */
-#line 42 "CFG.y" /* yacc.c:1909  */
+#line 43 "CFG.y" /* yacc.c:1909  */
 
     #include "my_header.h"
     #include <bits/stdc++.h>
@@ -100,7 +100,7 @@ extern int yydebug;
 
 union YYSTYPE
 {
-#line 48 "CFG.y" /* yacc.c:1909  */
+#line 49 "CFG.y" /* yacc.c:1909  */
 
     int iVal;
     float fVal;
@@ -110,7 +110,7 @@ union YYSTYPE
         string *label;
     } labelName;
     struct {
-        vector<int> *trueList, *falseList;
+        vector<int> *trueList, *falseList, *nextList;
     } list_type;
 
 #line 117 "y.tab.h" /* yacc.c:1909  */

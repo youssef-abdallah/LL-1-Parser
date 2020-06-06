@@ -11,15 +11,23 @@ return
 .limit stack 50
 bipush 5
 istore 1
+Label1: 
 iload 1
 bipush 2
-if_icmple Label1
-bipush 0
+if_icmple Label3
+iload 1
+bipush 3
+if_icmple Label2
+bipush 4
 istore 1
-goto Label2
-Label1: 
+goto Label4
+Label2: 
+bipush 5
+istore 1
+goto Label4
+Label3: 
 bipush 10
 istore 1
-Label2: 
+Label4: 
 return
 .end method

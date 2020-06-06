@@ -9,6 +9,7 @@
     void logError(string);
     void emit(string);
     void backPatch(vector<int> *list, string *label);
+    vector<int>* merge(vector<int> *, vector<int> *);
     void printCode();
     string getOperation(string op);
     void generateHeader();
@@ -54,7 +55,7 @@
         string *label;
     } labelName;
     struct {
-        vector<int> *trueList, *falseList;
+        vector<int> *trueList, *falseList, *nextList;
     } list_type;
 }
 
@@ -82,8 +83,11 @@
 %type<list_type> EXPRESSION
 %type<type> PRIMITIVE_TYPE
 %type<labelName> MARKER
-%type<iVal> GOTO
-
+%type<list_type> GOTO
+%type<list_type> STATEMENT
+%type<list_type> MORE_STATEMENTS
+%type<list_type> IF
+%type<list_type> WHILE
 
 %%
 
@@ -97,13 +101,17 @@ METHOD_BODY:
     }
     ;
 MORE_STATEMENTS:
-    STATEMENT MORE_STATEMENTS | 
+    STATEMENT MARKER MORE_STATEMENTS { 
+        $$.nextList = $3.nextList;
+        backPatch($1.nextList, $2.label);
+        }
+    | {$$.nextList = new vector<int> (); }
     ;
 STATEMENT:
-    DECLARATION
-    | IF
-    | WHILE
-    | ASSIGNMENT
+    DECLARATION {$$.nextList = new vector<int> (); }
+    | IF { $$.nextList = $1.nextList; }
+    | WHILE { $$.nextList = $1.nextList; }
+    | ASSIGNMENT { $$.nextList = new vector<int> (); }
     ;
 DECLARATION:
     PRIMITIVE_TYPE IDENTIFIER ASSIGNMENT_OPERATOR EXPRESSION SEMI_COLON
@@ -134,10 +142,12 @@ IF:
     EXPRESSION RIGHT_BRACKET
     LEFT_CURLY_BRACE STATEMENT GOTO
     RIGHT_CURLY_BRACE ELSE_KEYWORD
-    LEFT_CURLY_BRACE MARKER STATEMENT RIGHT_CURLY_BRACE MARKER
+    LEFT_CURLY_BRACE MARKER STATEMENT RIGHT_CURLY_BRACE
     {
         backPatch($3.falseList, $11.label);
-        code[$7] = code[$7] + " " + *($14.label);
+        //backPatch($7.nextList, $14.label);
+        $$.nextList = merge($7.nextList, $6.nextList);
+        $$.nextList = merge($$.nextList, $12.nextList);
     }
     ;
 WHILE:
@@ -146,7 +156,7 @@ WHILE:
     LEFT_CURLY_BRACE STATEMENT GOTO RIGHT_CURLY_BRACE MARKER
     {
         backPatch($4.falseList, $10.label);
-        code[$8] = code[$8] + " " + *($3.label);
+        backPatch($8.nextList, $3.label);
     }
     ;
 ASSIGNMENT:
@@ -214,8 +224,9 @@ FACTOR:
     ;
 GOTO:
     {
-        $$ = code.size();
-        emit("goto");
+        $$.nextList = new vector<int>();
+        $$.nextList->push_back(code.size());
+        emit("goto ");
     }
     ;
 MARKER:
@@ -253,12 +264,19 @@ void yyerror(char *s) {
     fprintf(stderr, "%s\n", s);
 }
 
-void backPatch(vector<int> *list, string *label){
+void backPatch(vector<int> *list, string *label) {
     if (list->size() > 0){
         for (int i = 0; i < list->size(); i++){
             code[ (*list)[i] ] = code[ (*list)[i] ] + (*label);
         }
     }
+}
+
+vector<int>* merge(vector<int> *list1, vector<int> *list2) {
+    vector<int> *newList = new vector<int>();
+    newList->insert(newList->end(), list1->begin(), list1->end());
+    newList->insert(newList->end(), list2->begin(), list2->end());
+    return newList;
 }
 
 void logError(string errorMsg) {
